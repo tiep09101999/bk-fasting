@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mốc thời gian</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137426789-2"></script>-->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-137426789-2");
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- // import Header -->
+      <%- include('component/header'); %>
+
+      <section class="mine">
+        <div class="mine__cards">
+          <% allTimeLines.forEach((timeLine) => {%>
+          <div class="mine__card">
+            <div class="mine__header timeLine">
+              <h4 class="mine__title timeLine">
+                <%= new Date(timeLine.timeEnd).toLocaleString()%>
+              </h4>
+            </div>
+            <div class="mine__subCard">
+              <a href="" class="mine__subHeader">
+                <div class="mine__subTitle">
+                  Ăn chay <%= timeLine.planName%>
+                </div>
+                <div class="mine__iconArrow">
+                  <img src="assets/icon-arrow.svg" alt="" />
+                </div>
+              </a>
+              <div class="mine__timerWrapper">
+                <div class="mine__timer"><%= timeLine.totalFastHours%></div>
+                <div class="mine__timerIcon">
+                  <img src="assets/icon-orange.svg" alt="" />
+                </div>
+              </div>
+              <div class="mine__timeContainer">
+                <div class="mine__time">
+                  <div class="mine__timeStart">Bắt đầu</div>
+                  <div class="maine__timeNumber">
+                    <%= formatDate(timeLine.timeStart)%>
+                  </div>
+                </div>
+                <div class="mine__time">
+                  <div class="mine__timeEnd">Kết thúc</div>
+                  <div class="maine__timeNumber">
+                    <%= formatDate(timeLine.timeEnd)%>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mine__card">
+            <div class="mine__header timeLine">
+              <h4 class="mine__title timeLine">
+                <%= new Date(timeLine.timeEnd).toLocaleString()%>
+              </h4>
+            </div>
+            <div class="mine__subCard water">
+              <a href="" class="mine__subHeader">
+                <div class="mine__subTitle">Uống nước</div>
+                <div class="mine__iconArrow">
+                  <img src="assets/icon-arrow.svg" alt="" />
+                </div>
+              </a>
+              <div class="mine__waterWrapper">
+                <div class="mine__water"><%= timeLine.waterDrunk %> ml</div>
+                <div class="mine__waterGoal">Mục tiêu: 2000ml</div>
+              </div>
+            </div>
+          </div>
+          <% }); %>
+          <!-- <div class="mine__card">
+            <div class="mine__header timeLine">
+              <h4 class="mine__title timeLine">Th12 21, Mon</h4>
+            </div>
+            <div class="mine__subCard">
+              <a href="" class="mine__subHeader">
+                <div class="mine__subTitle">Ăn chay 18-6</div>
+                <div class="mine__iconArrow">
+                  <img src="assets/icon-arrow.svg" alt="" />
+                </div>
+              </a>
+              <div class="mine__timerWrapper">
+                <div class="mine__timer">15 giờ 20 phút</div>
+                <div class="mine__timerIcon">
+                  <img src="assets/icon-orange.svg" alt="" />
+                </div>
+              </div>
+              <div class="mine__timeContainer">
+                <div class="mine__time">
+                  <div class="mine__timeStart">Bắt đầu</div>
+                  <div class="maine__timeNumber">12/19 &nbsp; 10:07</div>
+                </div>
+                <div class="mine__time">
+                  <div class="mine__timeEnd">Kết thúc</div>
+                  <div class="maine__timeNumber">12/19 &nbsp; 10:07</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mine__card">
+            <div class="mine__header timeLine">
+              <h4 class="mine__title timeLine">Th12 21, Mon</h4>
+            </div>
+            <div class="mine__subCard water">
+              <a href="" class="mine__subHeader">
+                <div class="mine__subTitle">Uống nước</div>
+                <div class="mine__iconArrow">
+                  <img src="assets/icon-arrow.svg" alt="" />
+                </div>
+              </a>
+              <div class="mine__waterWrapper">
+                <div class="mine__water">900 ml</div>
+                <div class="mine__waterGoal">Mục tiêu: 2000ml</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mine__card">
+            <div class="mine__header timeLine">
+              <h4 class="mine__title timeLine">Th12 21, Mon</h4>
+            </div>
+            <div class="mine__subCard">
+              <a href="" class="mine__subHeader">
+                <div class="mine__subTitle">Ăn chay 18-6</div>
+                <div class="mine__iconArrow">
+                  <img src="assets/icon-arrow.svg" alt="" />
+                </div>
+              </a>
+              <div class="mine__timerWrapper">
+                <div class="mine__timer">15 giờ 20 phút</div>
+                <div class="mine__timerIcon">
+                  <img src="assets/icon-orange.svg" alt="" />
+                </div>
+              </div>
+              <div class="mine__timeContainer">
+                <div class="mine__time">
+                  <div class="mine__timeStart">Bắt đầu</div>
+                  <div class="maine__timeNumber">12/19 &nbsp; 10:07</div>
+                </div>
+                <div class="mine__time">
+                  <div class="mine__timeEnd">Kết thúc</div>
+                  <div class="maine__timeNumber">12/19 &nbsp; 10:07</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mine__card">
+            <div class="mine__header timeLine">
+              <h4 class="mine__title timeLine">Th12 21, Mon</h4>
+            </div>
+            <div class="mine__subCard water">
+              <a href="" class="mine__subHeader">
+                <div class="mine__subTitle">Uống nước</div>
+                <div class="mine__iconArrow">
+                  <img src="assets/icon-arrow.svg" alt="" />
+                </div>
+              </a>
+              <div class="mine__waterWrapper">
+                <div class="mine__water">900 ml</div>
+                <div class="mine__waterGoal">Mục tiêu: 2000ml</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mine__card">
+            <div class="mine__header timeLine">
+              <h4 class="mine__title timeLine">Th12 21, Mon</h4>
+            </div>
+            <div class="mine__subCard water">
+              <a href="" class="mine__subHeader">
+                <div class="mine__subTitle">Uống nước</div>
+                <div class="mine__iconArrow">
+                  <img src="assets/icon-arrow.svg" alt="" />
+                </div>
+              </a>
+              <div class="mine__waterWrapper">
+                <div class="mine__water">900 ml</div>
+                <div class="mine__waterGoal">Mục tiêu: 2000ml</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mine__card">
+            <div class="mine__header timeLine">
+              <h4 class="mine__title timeLine">Th12 21, Mon</h4>
+            </div>
+            <div class="mine__subCard">
+              <a href="" class="mine__subHeader">
+                <div class="mine__subTitle">Ăn chay 18-6</div>
+                <div class="mine__iconArrow">
+                  <img src="assets/icon-arrow.svg" alt="" />
+                </div>
+              </a>
+              <div class="mine__timerWrapper">
+                <div class="mine__timer">15 giờ 20 phút</div>
+                <div class="mine__timerIcon">
+                  <img src="assets/icon-orange.svg" alt="" />
+                </div>
+              </div>
+              <div class="mine__timeContainer">
+                <div class="mine__time">
+                  <div class="mine__timeStart">Bắt đầu</div>
+                  <div class="maine__timeNumber">12/19 &nbsp; 10:07</div>
+                </div>
+                <div class="mine__time">
+                  <div class="mine__timeEnd">Kết thúc</div>
+                  <div class="maine__timeNumber">12/19 &nbsp; 10:07</div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </section>
+    </div>
+
+    <!-- // import footer For Mobile -->
+    <%- include('component/footerMobile');%>
+
+    <!-- import thu vien  -->
+    <script src="component/jquery/dist/jquery.min.js"></script>
+    <script src="component/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <!-- My Js -->
+    <script src="js/logout.js"></script>
+    <script src="js/main.js"></script>
+    <!--<script src="js/anime.js"></script>-->
+  </body>
+</html>

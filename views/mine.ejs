@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mine</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137426789-2"></script>-->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-137426789-2");
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- // import Header -->
+      <%- include('component/header'); %>
+
+      <section class="mine">
+        <div class="mine__cards">
+          <div class="mine__card">
+            <div class="mine__header">
+              <h4 class="mine__title">Tổng thời gian nhịn ăn</h4>
+              <div class="mine__timeTotal">
+                <span><%= user.totalFastingDays%></span> ngày
+              </div>
+            </div>
+            <div class="mine__timeLine"></div>
+            <div class="mine__subCard">
+              <a href="" class="mine__subHeader">
+                <div class="mine__subTitle">
+                  Ăn chay <%= user.plan.planName%>
+                </div>
+                <div class="mine__iconArrow">
+                  <img src="assets/icon-arrow.svg" alt="" />
+                </div>
+              </a>
+              <div class="mine__timerWrapper">
+                <div class="mine__timer">
+                  <%= lastedTimeLine.totalFastHours%>
+                </div>
+                <div class="mine__timerIcon">
+                  <img src="assets/icon-orange.svg" alt="" />
+                </div>
+              </div>
+              <div class="mine__timeContainer">
+                <div class="mine__time">
+                  <div class="mine__timeStart">Bắt đầu</div>
+                  <div class="maine__timeNumber">
+                    <%= formatDate(lastedTimeLine.timeStart) %>
+                  </div>
+                </div>
+                <div class="mine__time">
+                  <div class="mine__timeEnd">Kết thúc</div>
+                  <div class="maine__timeNumber">
+                    <%= formatDate(lastedTimeLine.timeEnd)%>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a href="timeline" class="mine__timeLineLink"
+              >Mốc thời gian <img src="assets/icon-next.svg" alt=""
+            /></a>
+          </div>
+
+          <div class="mine__card">
+            <div class="mine__cardIconWrapper">
+              <div class="mine__cardIcon">
+                <div class="mine__cardIconImage">
+                  <img src="assets/icon-tele.svg" alt="" />
+                </div>
+                <h5 class="mine__cardIconTitle">Tích lũy</h5>
+                <p class="mine__cardIconDesc">giờ</p>
+                <span class="mine__cardIconNumber"><%= user.cumulative%></span>
+              </div>
+              <div class="mine__cardIcon">
+                <div class="mine__cardIconImage two">
+                  <img src="assets/icon-repeat.svg" alt="" />
+                </div>
+                <h5 class="mine__cardIconTitle">Tiếp diễn</h5>
+                <p class="mine__cardIconDesc">ngày</p>
+                <span class="mine__cardIconNumber"><%= user.continuous%></span>
+              </div>
+              <div class="mine__cardIcon">
+                <div class="mine__cardIconImage three">
+                  <img src="assets/icon-clock.svg" alt="" />
+                </div>
+                <h5 class="mine__cardIconTitle">Nhanh nhất</h5>
+                <p class="mine__cardIconDesc">giờ</p>
+                <span class="mine__cardIconNumber"><%= user.longestFast%></span>
+              </div>
+              <div class="mine__cardIcon">
+                <div class="mine__cardIconImage four">
+                  <img src="assets/icon-crown.svg" alt="" />
+                </div>
+                <h5 class="mine__cardIconTitle">Danh hiệu</h5>
+                <p class="mine__cardIconDesc">Nhịn ăn 1 tuần</p>
+                <a href="" class="mine__cardIconLink">Nhiều hơn</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="mine__card">
+            <div class="mine__header">
+              <h4 class="mine__title">Ăn chay gần đây</h4>
+            </div>
+            <div class="mine__note">
+              <p class="mine__noteTitle">Đã hoàn thành</p>
+              <p class="mine__noteTitle two">24 giờ</p>
+            </div>
+            <div class="mine__chart"></div>
+          </div>
+
+          <div class="mine__card">
+            <div class="mine__header">
+              <h4 class="mine__title">Cân nặng:</h4>
+              <div class="mine__goal">
+                Mục tiêu: <%= user.goalWeight %> kg
+                <img src="assets/icon-edit-black.svg" alt="" />
+              </div>
+            </div>
+            <div class="mine__choose">
+              <form action="">
+                <select name="" id="">
+                  <option value="">kg</option>
+                  <option value="">Ibs</option>
+                </select>
+              </form>
+              <div class="mine__chooseIcon">
+                <img src="assets/icon-plus.svg" alt="" />
+              </div>
+            </div>
+            <div class="mine__chart"></div>
+          </div>
+
+          <div class="mine__card">
+            <div class="mine__header">
+              <h4 class="mine__title">Uống nước</h4>
+              <div class="mine__headerIcon">
+                <img src="assets/icon-plus.svg" alt="" />
+              </div>
+            </div>
+            <div class="mine__note">
+              <p class="mine__noteTitle">Đã hoàn thành</p>
+              <p class="mine__noteTitle two">24 giờ</p>
+            </div>
+            <div class="mine__chart"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- // import footer For Mobile -->
+    <%- include('component/footerMobile');%>
+
+    <!-- import thu vien  -->
+    <script src="component/jquery/dist/jquery.min.js"></script>
+    <script src="component/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <!-- My Js -->
+    <script src="js/logout.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

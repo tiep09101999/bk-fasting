@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137426789-2"></script>-->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-137426789-2");
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!--Navigation-->
+      <nav class="mainNav">
+        <a href="/" class="mainNav__logo"
+          ><img src="assets/logo.svg" alt=""
+        /></a>
+        <div class="mainNav__menu">
+          <div class="mainNav__links">
+            <a href="" class="mainNav__link">Giới thiệu</a>
+            <a href="" class="mainNav__link">Tìm Hiểu</a>
+            <a href="" class="mainNav__link">Kế hoạch</a>
+            <a href="" class="mainNav__link">Liên hệ</a>
+          </div>
+          <a href="" class="mainNav__button">Đăng ký</a>
+        </div>
+      </nav>
+      <!--end Navigation-->
+
+      <div class="container login">
+        <section class="content">
+          <div class="intro">
+            <h2 class="intro__title">Fast forward to better health.</h2>
+            <p class="intro__desc">
+              Cải thiện chế độ ăn uống của bạn, giúp sức khỏe tốt hơn và có chế
+              độ giảm cân phù hợp
+            </p>
+            <button class="cta white">Bắt đầu</button>
+          </div>
+          <div class="form">
+            <a class="form__facebook" href="auth/facebook"
+              ><img src="assets/icon-facebook.svg" alt="" />Đăng nhập với
+              Facebook</a
+            >
+            <span>hoặc</span>
+            <form action="">
+              <div class="form__inputWrapper">
+                <label for="email">Email</label>
+                <input type="email" placeholder="Nhập email của bạn" />
+              </div>
+              <div class="form__inputWrapper">
+                <label for="passwork">Mật khẩu</label>
+                <input type="password" placeholder="Mật khẩu" />
+              </div>
+
+              <div class="form__account">
+                <p>
+                  Chưa có tài khoản?
+                  <a class="link" href="/register">Đăng ký tại đây</a>
+                </p>
+              </div>
+
+              <button class="cta">Đăng nhập</button>
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- // import footer For Mobile -->
+    <%- include('component/footerMobile');%>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

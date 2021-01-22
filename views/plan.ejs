@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kế hoạch</title>
+    <link rel="stylesheet" href="css/swiper-bundle.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <!-- <link
+      rel="stylesheet"
+      href="component/bootstrap/dist/css/bootstrap.min.css"
+    /> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-137426789-2");
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- // import Header -->
+      <%- include('component/header'); %>
+
+      <!--Plan Slider-->
+      <section class="planSlider white"></section>
+      <!-- end Plan Slider -->
+    </div>
+
+    <!-- Modal Plan -->
+    <div class="modal plan">
+      <div class="modal__container plan">
+        <div class="modal__icon plan"></div>
+        <div class="modal__content">
+          <div class="modal__text">
+            <div class="modal__planTitle"></div>
+            <h2 class="modal__plansubTitle"></h2>
+            <p class="modal__planDesc"></p>
+          </div>
+          <div class="modal__iconPlan">
+            <div class="modal__iconPlanItem">
+              <img src="assets/icon-sunoff.svg" alt="" />
+            </div>
+            <div class="modal__iconPlanItem">
+              <img src="assets/icon-sun.svg" alt="" />
+            </div>
+            <div class="modal__iconPlanItem">
+              <img src="assets/icon-moon.svg" alt="" />
+            </div>
+          </div>
+          <div class="modal__cards">
+            <% plans.skipBreakfastPlans.forEach((plan) => { %>
+            <a
+              class="modal__card"
+              href="#"
+              data-title="Kế hoạch hàng tuần"
+              data-subtitle="<%= plan.planName%>"
+              data-subtitle2="<%= plan.fastHours%>"
+              data-subtitle3="<%= plan.eatHours%>"
+              data-desc="Bỏ bữa sáng"
+            >
+              <div class="modal__cardHeader">
+                <h2 class="modal__cardTitle"><%= plan.planName%></h2>
+                <div class="modal__cardIcon">
+                  <img src="assets/icon-fast.svg" alt="" />
+                  <img src="assets/icon-fast.svg" alt="" />
+                  <img src="assets/icon-fast.svg" alt="" />
+                </div>
+              </div>
+              <p class="modal__cardDesc">Kế hoạch<span>7</span>ngày</p>
+              <div class="modal__cardSkip">Bỏ bữa sáng</div>
+            </a>
+
+            <% })%>
+          </div>
+
+          <div class="modal__iconPlan">
+            <div class="modal__iconPlanItem">
+              <img src="assets/icon-sun2.svg" alt="" />
+            </div>
+            <div class="modal__iconPlanItem">
+              <img src="assets/icon-sun.svg" alt="" />
+            </div>
+            <div class="modal__iconPlanItem">
+              <img src="assets/icon-moon.svg" alt="" />
+            </div>
+          </div>
+          <div class="modal__cards">
+            <% plans.skipDinnerPlans.forEach((plan) => { %>
+            <a
+              class="modal__card"
+              href="#"
+              data-title="Kế hoạch hàng tuần"
+              data-subtitle="<%= plan.planName%>"
+              data-subtitle2="<%= plan.fastHours%>"
+              data-subtitle3="<%= plan.eatHours%>"
+              data-desc="Bỏ bữa sáng"
+            >
+              <div class="modal__cardHeader">
+                <h2 class="modal__cardTitle"><%= plan.planName%></h2>
+                <div class="modal__cardIcon">
+                  <img src="assets/icon-fast.svg" alt="" />
+                  <img src="assets/icon-fast.svg" alt="" />
+                  <img src="assets/icon-fast.svg" alt="" />
+                </div>
+              </div>
+              <p class="modal__cardDesc">Kế hoạch<span>7</span>ngày</p>
+              <div class="modal__cardSkip two">Bỏ bữa tối</div>
+            </a>
+
+            <% })%>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end Modal Plan -->
+
+    <!-- Modal Detail -->
+    <div class="modal detail">
+      <div class="modal__container detail">
+        <div class="modal__icon detail"></div>
+        <div class="modal__content">
+          <div class="modal__detailText">
+            <div class="modal__detailTitle"></div>
+            <h2 class="modal__detailsubTitle"></h2>
+            <p class="modal__detailDesc"></p>
+          </div>
+
+          <div class="modal__detailTimer">
+            <p class="modal__detailTimerItem one"><span></span> nhịn ăn</p>
+            <p class="modal__detailTimerItem two">
+              <span></span> giờ cửa sổ cho ăn
+            </p>
+            <p class="modal__detailTimerItem"><span></span> ngày kế hoạch</p>
+          </div>
+          <% if(!user.plan.isChoose) { %>
+          <button class="cta detail">Bất đầu kế hoạch</button>
+          <% } else if (user.plan.isChoose && user.plan.isEndFasting) { %>
+          <button class="cta detail">Bất đầu kế hoạch</button>
+
+          <% } else { %>
+          <div class="alert" role="alert">Bạn đang có 1 kế hoạch rồi !</div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <!-- end Modal Detail -->
+
+    <!-- // import footer For Mobile -->
+    <%- include('component/footerMobile');%>
+
+    <!-- import thu vien  -->
+    <script src="component/jquery/dist/jquery.min.js"></script>
+    <script src="component/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <!-- My Js -->
+    <script src="js/logout.js"></script>
+    <script src="js/swiper-bundle.js"></script>
+    <script src="js/plan.js"></script>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fasting Tracker</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <script src="socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="css/main.css" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137426789-2"></script>-->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-137426789-2");
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- // import Header -->
+      <%- include('component/header'); %>
+
+      <section class="choose">
+        <h2 class="choose__title">Chọn một cái để bắt đầu nhịn ăn!</h2>
+        <div class="choose__cards">
+          <% plans.forEach((plan) => { %>
+          <a
+            class="choose__card"
+            id="choose_plan"
+            href="/countup"
+            data-uid="<%=plan._id%>"
+          >
+            <div class="choose__cardTime"><%= plan.planName%></div>
+            <p class="choose__cardDesc">
+              <img src="assets/Star_green.svg" alt="" /><%= plan.fastHours %>
+              giờ nhịn ăn
+            </p>
+            <p class="choose__cardDesc">
+              <img src="assets/Star_gray.svg" alt="" /><%= plan.eatHours %> thời
+              kỳ ăn uống của chúng ta
+            </p>
+          </a>
+          <% }) %>
+        </div>
+      </section>
+    </div>
+
+    <!-- // import footer For Mobile -->
+    <%- include('component/footerMobile');%>
+
+    <!-- import thu vien  -->
+    <script src="component/jquery/dist/jquery.min.js"></script>
+    <script src="component/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <!-- My Js -->
+    <script src="js/logout.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/anime.js"></script>
+    <script src="js/calculateTime.js"></script>
+  </body>
+</html>

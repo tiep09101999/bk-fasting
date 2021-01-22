@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tìm hiểu</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="css/swiper-bundle.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137426789-2"></script>-->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-137426789-2");
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <%- include('component/header'); %>
+
+      <section class="learn">
+        <div class="learn__cards">
+          <div class="learn__card">
+            <h2 class="learn__title">COVID-19</h2>
+            <div class="learn__cardItems">
+              <a href="#" class="learn__cardItem one">
+                <div class="learn__image">
+                  <img src="assets/icon-chart-area.svg" alt="" />
+                </div>
+                <div class="learn__subTitle">
+                  <img src="assets/icon-arrow-right.svg" alt="" />COVID-19 and
+                  nhịn ăn
+                </div>
+              </a>
+              <a href="#" class="learn__cardItem two">
+                <div class="learn__image two">
+                  <img src="assets/icon-chart-area.svg" alt="" />
+                </div>
+                <div class="learn__subTitle two">
+                  <img src="assets/icon-arrow-right.svg" alt="" />Làm thế nào để
+                  giữ sức khỏe trong COVID-19?
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="learn__card">
+            <div class="learn__icon">
+              <img src="assets/icon-leaf.svg" alt="" />
+            </div>
+            <h2 class="learn__title">Gián đoạn trong quá trình nhịn ăn</h2>
+            <div class="learn__links">
+              <a
+                class="learn__link"
+                data-subtitle="Về nhịn ăn gián đoạn"
+                data-title="Nhịn ăn liên tục là gì?"
+                data-desc="Nhịn ăn gián đoạn là một trong những xu hướng sức khỏe và thể dục phổ biến nhất.  Thay vì ăn kiêng, đó là một chế độ ăn uống xoay vòng giữa các giai đoạn nhịn ăn và ăn uống. Nó không chỉ rõ bạn nên ăn hoặc tránh thực phẩm nào, nhưng bạn nên ăn khi nào.  Ngày nay, chúng ta ăn 3-4 (hoặc nhiều hơn) bữa mỗi ngày và không bao giờ cảm thấy đói.  Điều này đòi hỏi các cơ quan của chúng ta phải làm việc chăm chỉ mọi lúc, và không bao giờ được nghỉ tiêu hóa."
+                href="#"
+                ><img src="assets/icon-arrow-right.svg" alt="" />Nhịn ăn liên
+                tục là gì?</a
+              >
+              <a
+                class="learn__link"
+                data-subtitle="Về nhịn ăn gián đoạn"
+                data-title="Việc nhịn ăn gián đoạn phù hợp cho ai?"
+                data-desc="Nhịn ăn gián đoạn mang đến cho bạn một lối sống mới với những thói quen lành mạnh.  Nhưng nếu bạn: - Dưới 18 tuổi - Đang mang thai hoặc đang cho con bú - Có vấn đề về sức khỏe, chẳng hạn như bệnh tiểu đường và tim mạch - Thiếu cân Không cảm thấy khỏe khi nhịn ăn Cân nhắc các rủi ro liên quan và hỏi ý kiến ​​bác sĩ trước khi  nhịn ăn.  Việc sử dụng Công cụ Theo dõi Nhịn ăn là rủi ro của riêng bạn.  Nếu bạn mới bắt đầu ăn chay, chúng tôi khuyên bạn nên bắt đầu với kế hoạch dành cho người mới bắt đầu và dần dần để cơ thể thích nghi với lối sống mới."
+                href="#"
+                ><img src="assets/icon-arrow-right.svg" alt="" />Việc nhịn ăn
+                gián đoạn phù hợp cho ai?</a
+              >
+              <a
+                class="learn__link"
+                data-subtitle="Về nhịn ăn gián đoạn"
+                data-title="Nhịn ăn gián đoạn có tốt cho sức khỏe không?"
+                data-desc="Nhịn ăn gián đoạn được biết đến nhiều nhất để giảm cân và giải độc.  Các nghiên cứu chỉ ra rằng việc nhịn ăn không liên tục làm thay đổi mức độ hormone, làm tăng sự phân hủy chất béo trong cơ thể và tạo điều kiện cho việc sử dụng nó làm năng lượng.  Khi nhịn ăn, cơ thể bạn bắt đầu một con đường trao đổi chất được gọi là autophagy, một quá trình giải độc, sửa chữa và tái tạo.  Điều này làm giảm viêm và có lợi ích chống lại sự lão hóa và sự phát triển của nhiều bệnh, chẳng hạn như bệnh tim."
+                href="#"
+                ><img src="assets/icon-arrow-right.svg" alt="" />Nhịn ăn gián
+                đoạn có tốt cho sức khỏe không?</a
+              >
+              <!-- <a
+                class="learn__link"
+                data-subtitle="Về nhịn ăn gián đoạn"
+                data-title="Far far away, behind the word mountains?"
+                data-desc="Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. 4"
+                href="#"
+                ><img src="assets/icon-arrow-right.svg" alt="" />Far far away,
+                behind the word mountains?</a
+              > -->
+            </div>
+          </div>
+          <div class="learn__card">
+            <div class="learn__icon">
+              <img src="assets/icon-leaf.svg" alt="" />
+            </div>
+            <h2 class="learn__title">Fasting with us</h2>
+            <div class="learn__links">
+              <a
+                class="learn__link"
+                data-subtitle="Fasting with us"
+                data-title="Nếu không thể bỏ bữa ăn của tôi thì sao?"
+                data-desc="Thành thật mà nói, một vài lần đầu tiên thật khó khăn.  Cơ thể bạn đã quen với phản ứng của hormone với thức ăn. Bạn có thể nói, 'Tôi không bao giờ làm được điều đó'. Nhưng một khi bắt đầu, đó là một tích tắc. Nhiều người có thể hỏi, bỏ bữa sáng có sao không? Câu trả lời là có. Vì cảm giác đói thấp nhất vào buổi sáng nên bạn có thể dễ dàng bỏ qua hơn. Chúng tôi cung cấp các kế hoạch khác nhau, bạn có thể chọn bữa ăn nào nên bỏ qua dựa trên lối sống của bạn."
+                href="#"
+                ><img src="assets/icon-arrow-right.svg" alt="" />Nếu không thể
+                bỏ bữa ăn của tôi thì sao?</a
+              >
+              <a
+                class="learn__link"
+                data-subtitle="Fasting with us"
+                data-title="Tôi có thể ăn và uống gì?"
+                data-desc="Ăn chay không chỉ rõ bạn nên ăn hoặc tránh thực phẩm nào, nhưng bạn nên ăn khi nào.  Trong thời gian nhịn ăn, bạn uống nước, cà phê và trà không có sữa và đường.  Cà phê rất tốt khi nhịn ăn, vì nó có thể làm giảm cảm giác đói.  Trong thời gian ăn uống, bạn không cần phải thay đổi chế độ ăn uống của mình, nhưng hãy cố gắng giữ một chế độ ăn uống lành mạnh và cân bằng.  Không có hạn chế về loại hoặc bao nhiêu thức ăn để ăn.  Chắc chắn, bạn có thể ăn sô cô la, nhưng ăn càng ít calo thì bạn càng giảm cân."
+                href="#"
+                ><img src="assets/icon-arrow-right.svg" alt="" />Tôi có thể ăn
+                và uống gì?</a
+              >
+              <a
+                class="learn__link"
+                data-subtitle="Fasting with us"
+                data-title="Cứu giúp! Tôi đang bị một cơn đói cấp tính!"
+                data-desc="Khi bạn bắt đầu nhịn ăn, bạn sẽ đói.  Phương pháp đơn giản nhất, dễ nhất và lành mạnh nhất để ngăn cơn đói là uống nước đầy đủ.  Bạn cũng có thể uống cà phê và trà.  Caffeine có thể ngăn chặn cơn đói.  Cà phê và các loại trà có chứa caffein, chẳng hạn như trà xanh, trà đen và trà pu-erh thúc đẩy cảm giác no.  Tiếp tục bận rộn, thực hiện một số nhiệm vụ liên quan đến công việc, đi dạo, một sở thích cũng có thể giúp bạn tránh khỏi cảm giác đói."
+                href="#"
+                ><img src="assets/icon-arrow-right.svg" alt="" />Cứu giúp! Tôi
+                đang bị một cơn đói cấp tính!</a
+              >
+              <a
+                class="learn__link"
+                data-subtitle="Fasting with us"
+                data-title="Làm thế nào tôi có thể phá vỡ một nhanh chóng?"
+                data-desc="Ăn mừng bằng cách ăn một bữa ăn lớn có thể bị hấp dẫn sau một thời gian hạn chế.  Tuy nhiên, việc nhịn ăn bằng bữa tiệc có thể dẫn đến một số vấn đề như buồn nôn, chướng bụng hoặc tiêu chảy.  Cách tốt nhất để giảm nhanh một cách an toàn là quay trở lại thói quen ăn uống bình thường một cách chậm rãi và có chiến lược, điều này sẽ không gây rối loạn hệ tiêu hóa của bạn hoặc làm hỏng một số tác dụng tốt mà bạn đạt được khi nhịn ăn."
+                href="#"
+                ><img src="assets/icon-arrow-right.svg" alt="" />Làm thế nào tôi
+                có thể phá vỡ một nhanh chóng?</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="modal text">
+      <div class="modal__container">
+        <div class="modal__icon text"></div>
+        <div class="modal__content">
+          <div class="modal__subTitle"></div>
+          <h2 class="modal__title"></h2>
+          <p class="modal__desc"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal slider">
+      <div class="modal__container">
+        <div class="modal__icon slider"></div>
+        <section class="contentMedia white about">
+          <div class="contentMedia__wrapper">
+            <div class="contentMedia__sliderContainer">
+              <div class="contentMedia__slider swiper-container anime">
+                <div class="swiper-wrapper"></div>
+              </div>
+
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="modal slider2">
+      <div class="modal__container">
+        <div class="modal__icon slider2"></div>
+        <section class="contentMedia white about2">
+          <div class="contentMedia__wrapper">
+            <div class="contentMedia__sliderContainer">
+              <div class="contentMedia__slider2 swiper-container anime">
+                <div class="swiper-wrapper"></div>
+              </div>
+
+              <div class="swiper-button-prev two"></div>
+              <div class="swiper-button-next two"></div>
+              <div class="swiper-pagination two"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- // import footer For Mobile -->
+    <%- include('component/footerMobile');%>
+
+    <!-- import thu vien  -->
+    <script src="component/jquery/dist/jquery.min.js"></script>
+    <script src="component/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <!--My JS-->
+    <script src="js/logout.js"></script>
+    <script src="js/swiper-bundle.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/modal_learn.js"></script>
+  </body>
+</html>
