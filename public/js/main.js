@@ -294,6 +294,7 @@ function countDown(timelimit, timepassed, timeStart, notice) {
         setCircleDasharray();
 
         if (timePassed == 0) {
+          socket.emit("push-notification-start-fasting-custom-plan");
           location.reload();
         }
 
@@ -394,13 +395,18 @@ function countDown(timelimit, timepassed, timeStart, notice) {
         // timeTmp dùng để xác định tỉ lệ time / timelimit
         timeTmp = timePassed % timelimit;
         setCircleDasharray();
+        socket.emit("time-passed-level", timePassed);
         // phát tín hiệu cho server nhận thời gian trôi qua
 
         // document.getElementById("countDown__timeStart").innerHTML =
         //   "bắt đầu vào lúc";
         // document.getElementById("countDown__subtitle").innerHTML =
         //   "Đang nhịn ăn";
-
+        // đẩy thông báo nhắc user vào khi quá 1 ngày ( 2,3 ngày fasting)
+        if ((timePassed - timelimit) % 86400 === 0) {
+          let data = (timePassed - timelimit) / 86400;
+          socket.emit("push-notification-after-fasting-1-day", data);
+        }
         document.getElementById("base-timer-label").innerHTML = formatTime(
           timePassed
         );

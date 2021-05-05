@@ -1,0 +1,63 @@
+ <!-- Modal End Fasting -->
+ <div class="modal endFasting">
+    <div class="modal__container endFasting">
+        <i class="modal__icon endFasting">
+        </i>
+        <div class="modal__content endFasting">
+            <form action="">
+                <div class="modal__endFastingText">
+                    <h4 class="modal__endFastingsubTitle">Tổng thời gian nhịn ăn</h4>
+                    <h2 class="modal__endFastingTitle"><span><%= parseInt((Date.now() - user.plan.chooseAt)/(1000*3600))%></span> giờ <span><%= parseInt((Date.now() - user.plan.chooseAt) / (1000 * 60)) % 60 %></span> phút</h4>
+                </div>
+                <div class="modal__endFastingCards">
+                    <div class="modal__endFastingCardItem">
+                        <div class="modal__endFastingCardTitle">Kế hoạch</div>
+                        <div class="modal__endFastingCardsubTitle">Ăn chay <%= user.plan.name %></div>
+                        <div class="modal__endFastingCardTimer one">
+                            <div class="modal__endFastingCardStart">Bắt đầu</div>
+                            <div class="modal__endFastingCardDay"> <%= new Date(user.plan.chooseAt).toLocaleString()%> <img src="assets/icon-editcolor.svg" alt=""></div>
+                        </div>
+                        <div class="modal__endFastingCardTimer two">
+                            <div class="modal__endFastingCardEnd">Kết thúc</div>
+                            <div class="modal__endFastingCardDay"><%= new Date().toLocaleString()%> <img src="assets/icon-editcolor.svg" alt=""></div>
+                        </div>
+                    </div>
+                    
+                    <div class="modal__endFastingCardItem">
+                        <div class="modal__endFastingCardTitle">Căn nặng</div>
+                        <p class="modal__endFastingCardTextsubTitle">Hôm nay</p>
+                        <h2 class="modal__endFastingCardWeight">50,0 kg <img src="assets/icon-editcolor.svg" class="modal__endFastingClose" alt=""></h2>
+                        <div class="modal__endFastingInput" id=""><input type="text" placeholder="Nhập cận nặng"></div>
+                        <div class="modal__endFastingCardTimeLine"></div>
+                        <div class="modal__endFastingCardKg">
+                            <div class="modal__endFastingCardKgTitle">Bất đầu: ~ kg</div>
+                            <div class="modal__endFastingCardKgGoal">Mục tiêu: <%= user.goalWeight %> kg</div>
+                        </div>
+                    </div>
+                    
+                    <div class="modal__endFastingCardItem">
+                        <div class="modal__endFastingCardTitle">Bạn cảm thấy thế nào</div>
+                        <div class="modal__endFastingCardIcons">
+                            <div class="modal__endFastingCardIcon"><img src="assets/icon-orange.svg" alt="">Khó</div>
+                            <div class="modal__endFastingCardIcon"><img src="assets/icon-orange.svg" alt="">Just right</div>
+                            <div class="modal__endFastingCardIcon"><img src="assets/icon-orange.svg" alt="">Dễ</div>
+                        </div>
+                    </div>
+                    
+                    <div class="modal__endFastingCardItem">
+                        <div class="modal__endFastingCardTitle">Ghi chú</div>
+                        <div class="modal__endFastingCardInput">
+                            <textarea name="" id="take_note" cols="30" rows="10" placeholder="Thêm ghi chú"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal__btnEndFasting">
+                    <div class="modal__ctaEndFasting cta delete btnDeleteFasting" id="btnDeleteFasting">Xoá bỏ</div>
+                    <div class="modal__ctaEndFasting cta" id="btnSaveFasting" data-time="<%= user.plan.chooseAt%>">Lưu lại</div>
+                </div>
+            </form>
+        </div>
+    </div>
+  </div>
+<!-- end Modal End Fasting -->

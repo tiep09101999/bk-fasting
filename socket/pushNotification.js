@@ -40,6 +40,17 @@ let pushNotification = (io) => {
           .catch((error) => console.error(error));
       });
     });
+    socket.on("push-notification-start-fasting-custom-plan", (data) => {
+      let payload2 = JSON.stringify({
+        title: "Đã đến thời gian nhịn ăn  !!",
+        body: " Tiếp tục kế hoạch nào",
+      });
+      items.forEach((sub) => {
+        webPush
+          .sendNotification(sub.subscription, payload2)
+          .catch((error) => console.error(error));
+      });
+    });
   });
 };
 

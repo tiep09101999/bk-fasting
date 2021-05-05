@@ -55,7 +55,43 @@ function deleteEndFast() {
       });
     });
 }
+
+function endCustomPlan() {
+  $("#btnEndFastingCustom")
+    .off("click")
+    .on("click", function () {
+      let dataEnd = Date.now();
+      console.log(dataEnd);
+      let timeChoose = $(this).data("time");
+      console.log(timeChoose);
+      if (dataEnd > timeChoose) {
+        let dateEnd = Date.now();
+        let timeStart = $(this).data("time");
+        let takeNote = $("#take_note").val();
+        let waterDrunk = $("#modal__drinkTitle > span").text();
+        let currentWeight = $("#modal__endFastingInput").val();
+        let distanceTime = timeEnd - timeStart;
+        $.ajax({
+          url: "/addTimeLine",
+          method: "post",
+          data: {
+            currentWeight: currentWeight,
+            dateStart: timeStart,
+            dateEnd: dateEnd,
+            takeNote: takeNote,
+            waterDrunk: waterDrunk,
+          },
+          success: function (data) {
+            if (data.success) {
+              location.reload();
+            }
+          },
+        });
+      }
+    });
+}
 $(document).ready(function () {
   endFast();
   deleteEndFast();
+  endCustomPlan();
 });

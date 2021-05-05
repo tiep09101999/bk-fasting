@@ -6,9 +6,18 @@ const custom = document.querySelector(".choose__card2.custom"),
   iconCloseCustom = document.querySelector(".custom .modal__icon"),
   body = document.querySelector("body");
 
-custom.addEventListener("click", openModalCustom);
+$("#btnStartPlanAgainCustom")
+  .off("click")
+  .on("click", function () {
+    openModalCustom();
+  });
+$("#modal_icon")
+  .off("click")
+  .on("click", function () {
+    closeModalCustom();
+  });
 
-iconCloseCustom.addEventListener("click", closeModalCustom);
+custom.addEventListener("click", openModalCustom);
 
 function openModalCustom() {
   modalCustom.classList.add("open");

@@ -20,7 +20,7 @@ let userOn = (io) => {
     // tính thời gian đã trôi qua
     let time = new Date();
     let choosePlanTime = socket.request.user.plan.chooseAt;
-    let flag = choosePlanTime > time ? true : false;
+    let flag = choosePlanTime >= time ? true : false;
     // khoảng cách 2 thời gian nếu user chọn custom plan
     let distanceTime = flag
       ? parseInt((choosePlanTime - time) / 1000)
@@ -52,22 +52,23 @@ let userOn = (io) => {
 
     if (socket.request.user.plan.name === "custom") {
       socket.on("user-online", () => {
-        if (flag) {
-          console.log(
-            "User " + socket.request.user.username + " online - waiting"
-          );
-          socket.emit("req-user-online", data_wait);
-        } else {
-          console.log(
-            "User " + socket.request.user.username + " online - custom-passed"
-          );
-          socket.emit("req-user-online", data_passed);
-        }
         if (socket.request.user.plan.isEndFasting) {
           console.log(
             "User " + socket.request.user.username + " online - feeding"
           );
           socket.emit("req-user-online", data_feeding_custom);
+        } else {
+          if (flag) {
+            console.log(
+              "User " + socket.request.user.username + " online - waiting"
+            );
+            socket.emit("req-user-online", data_wait);
+          } else {
+            console.log(
+              "User " + socket.request.user.username + " online - custom-passed"
+            );
+            socket.emit("req-user-online", data_passed);
+          }
         }
       });
     } else {

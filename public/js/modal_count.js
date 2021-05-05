@@ -268,6 +268,45 @@ window.addEventListener("load", (event) => {
     modalEndFasting = document.querySelector(".modal.endFasting"),
     iconCloseEndFasting = document.querySelector(".endFasting .modal__icon");
 
+  $("#btnEndFastingCustom")
+    .off("click")
+    .on("click", function () {
+      let dataEnd = Date.now();
+      let timeChoose = $(this).data("time");
+      if (dataEnd < timeChoose) {
+        let dataEnd = Date.now();
+        let timeChoose = $(this).data("time");
+        if (dataEnd < timeChoose) {
+          console.log("test");
+          Swal.fire({
+            title:
+              "Chưa đến thời gian nhịn ăn, bạn có chắc chắn muốn kết thúc?",
+            text: "Dữ liệu sẽ không được lưu",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Có",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              $.ajax({
+                url: "/delete-end-fasting",
+                method: "put",
+
+                success: function (data) {
+                  console.log(data);
+                  if (data.success) {
+                    location.reload();
+                  }
+                },
+              });
+            }
+          });
+        }
+      } else {
+        openModalEndFasting();
+      }
+    });
   endFasting.addEventListener("click", openModalEndFasting);
 
   iconCloseEndFasting.addEventListener("click", closeModalEndFasting);
