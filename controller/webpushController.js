@@ -18,8 +18,8 @@ module.exports.handleSubcription = async (req, res) => {
     };
     let newSub = await subscriptionModel.createNew(item);
     const payload = JSON.stringify({
-      title: "Push notifications with Service Workers",
-      body: "Welcome to my app",
+      title: "Welcome to my app",
+      body: "Let's go",
     });
 
     // const payload = {

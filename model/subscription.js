@@ -22,7 +22,7 @@ SubscriptionSchema.statics = {
     return this.findOne({ userId: userId }).sort({ createdAt: -1 }).exec();
   },
   findSubByUserId(id) {
-    return this.findLastSub({ userId: id }).exec();
+    return this.find({ userId: id }).exec();
   },
 };
 module.exports = mongoose.model("subscription", SubscriptionSchema);

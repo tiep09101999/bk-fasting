@@ -67,7 +67,7 @@ function countDown(timelimit, timepassed, timeStart, notice) {
         }
         // đẩy thông báo nhắc user vào khi quá 1 ngày ( 2,3 ngày fasting)
         if ((timePassed - timelimit) % 86400 === 0) {
-          let data = (timePassed - timelimit) % 86400;
+          let data = (timePassed - timelimit) / 86400;
           socket.emit("push-notification-after-fasting-1-day", data);
         }
 
@@ -175,7 +175,10 @@ function countDown(timelimit, timepassed, timeStart, notice) {
         document.getElementById("base-timer-label").innerHTML = formatTime(
           timePassed
         );
-
+        if (timePassed === timelimit) {
+          // gửi thông báo cho user đã hết khoảng thời gian ăn uống
+          socket.emit("finish-time-feeding-window");
+        }
         // khi nhận đc thông báo đang trong quá trình feeding window ( đã end fasting )
 
         // document.getElementById("countDown__timeStart").innerHTML =
@@ -267,7 +270,8 @@ function countDown(timelimit, timepassed, timeStart, notice) {
 socket.emit("user-online");
 socket.on("req-user-online", (data) => {
   countDown(data.timelimit, data.timePassed, data.chooseAt, data.notice);
-  // countDown(7200, 7195, 5, "fasting");
+  //countDown(7200, 93595, 5, "fasting");
+  //countDown(7200, 7195, 6, "feeding");
 });
 
 // bắt sự kiện user online để tính thời gian đã countUp khi  đang feeding window
