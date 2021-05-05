@@ -2,32 +2,27 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 const initPassportFb = require("../controller/passportController");
+const initPassportLocal = require("../controller/passportLocalController");
 const authController = require("../controller/authController");
 const homeController = require("../controller/homeController");
 const planController = require("../controller/planController");
+const webpushController = require("../controller/webpushController");
 const PlanModel = require("../model/plan");
 const UserModel = require("../model/user");
 const TimeLineModel = require("../model/timeline");
 const formatDate = require("../helper/formatDate");
+
 // init login with fb
 initPassportFb();
+//login with local
+initPassportLocal();
 
 router
+  // .get("/example", (req, res) => {
+  //   res.render("example", { title: "ejs" });
+  // })
   .get("/", authController.checkLoggedIn, homeController.getHome)
-  .get("/countup", authController.checkLoggedIn, async (req, res) => {
-    if (!req.user.plan.isChoose) res.redirect("/");
-
-    let nd = new Date(req.user.plan.chooseAt);
-    let plan = await PlanModel.model.findPlanById(req.user.plan.planId);
-    nd.setHours(nd.getHours() + plan.fastHours);
-    let newDate = new Date(nd);
-    // lấy định dạng HH:MM lúc bắt đầu
-
-    res.render("countdown_home", {
-      user: req.user,
-      newDate: newDate,
-    });
-  })
+  .get("/countup", authController.checkLoggedIn, homeController.getCountUp)
 
   .get("/register", authController.checkLoggedOut, (req, res) => {
     res.render("register");
@@ -57,6 +52,13 @@ router
   .get("/login", authController.checkLoggedOut, (req, res) => {
     res.render("login");
   })
+  .post(
+    "/login-local",
+    passport.authenticate("local", {
+      successRedirect: "/",
+      failureRedirect: "/login",
+    })
+  )
   .get(
     "/auth/facebook",
     passport.authenticate("facebook", { scope: ["email"] })
@@ -71,5 +73,12 @@ router
   .get("/logout", authController.checkLoggedIn, (req, res) => {
     req.logout();
     res.redirect("/login");
-  });
+  })
+  // web-push
+  .post(
+    "/subscribe",
+    authController.checkLoggedIn,
+    webpushController.handleSubcription
+  );
+
 module.exports = router;

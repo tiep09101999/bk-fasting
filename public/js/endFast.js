@@ -6,10 +6,12 @@ function endFast() {
       let timeStart = $(this).data("time");
       let takeNote = $("#take_note").val();
       let waterDrunk = $("#modal__drinkTitle > span").text();
+      let currentWeight = $("#modal__endFastingInput").val();
       $.ajax({
         url: "/addTimeLine",
         method: "post",
         data: {
+          currentWeight: currentWeight,
           dateStart: timeStart,
           dateEnd: Date.now(),
           takeNote: takeNote,

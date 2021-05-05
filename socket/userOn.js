@@ -50,6 +50,17 @@ let userOn = (io) => {
         socket.emit("req-user-online", data_fasting);
       }
     });
+    // socket.on("disconnect", () => {
+    //   // let timeDisconnect = new Date();
+    //   // let time = timeDisconnect - data;
+    //   if (socket.request.user.plan.isEndFasting) {
+    //     console.log("User " + socket.request.user.username + " offline 123");
+    //     socket.emit("req-user-online", data_feeding);
+    //   } else {
+    //     console.log("User " + socket.request.user.username + " offline");
+    //     socket.emit("req-user-online", data_fasting);
+    //   }
+    // });
   });
 };
 

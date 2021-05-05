@@ -19,6 +19,9 @@ let fastingLevel = (io) => {
       let time = data;
       socket.emit("req-time-passed-level", time);
     });
+    socket.on("disconnect", (data) => {
+      socket.emit("req-time-passed-level", data);
+    });
   });
 };
 

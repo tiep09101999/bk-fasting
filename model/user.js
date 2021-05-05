@@ -23,11 +23,18 @@ let UserSchema = new Schema({
     // check xem đã End fasting 1 plan bất kì nào chưa
     isEndFasting: { type: Boolean, default: true },
   },
+  // thông tin khi user đăng nhập bằng local
+  local: {
+    email: { type: String, trim: true },
+    password: String,
+  },
+  // lưu thông tin khi login bằng fb
   facebook: {
     uid: String,
     token: String,
     email: { type: String, trim: true },
   },
+  // tổng ngày đã nhịn ăn
   totalFastingDays: { type: Number, default: 0 },
   // tổng thời gian đã nhịn ăn
   cumulative: { type: Number, default: 0 },
@@ -36,14 +43,22 @@ let UserSchema = new Schema({
   // lần nhịn ăn lâu nhất
   longestFast: { type: Number, default: 0 },
   trophies: { type: Number, default: 0 },
+  // cân nặng hiện tại
+  currentWeight: { type: Number, default: 50 },
+  // cân nặng mong đợi
   goalWeight: { type: Number, default: 50 },
-
+  // thời gian tài khoản được tạo
   createdAt: { type: Number, default: Date.now },
+  // thời gian khi sửa thông tin
+  updateAt: { type: Number, default: null },
 });
 
 UserSchema.statics = {
   createNew(item) {
     return this.create(item);
+  },
+  findByEmailLocal(email) {
+    return this.findOne({ "local.email": email }).exec();
   },
   findUserByFbUid(id) {
     return this.findOne({ "facebook.uid": id }).exec();
@@ -56,6 +71,15 @@ UserSchema.statics = {
   },
   updateUser(id, item) {
     return this.findByIdAndUpdate(id, item).exec();
+  },
+};
+
+UserSchema.methods = {
+  comparePassword(password) {
+    // tra ve 1 promise
+    // return bcrypt.compare(password, this.local.password);
+    if (password == this.local.password) return true;
+    return false;
   },
 };
 

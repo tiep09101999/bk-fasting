@@ -5,9 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fasting Tracker</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <link rel="stylesheet" href="component/AlertifyJS/build/css/alertify.css" />
+
     <script src="socket.io/socket.io.js"></script>
     <link rel="stylesheet" href="css/main.css" />
-
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#2196f3" />
+    <!-- ios Support -->
+    <link rel="apple-touch-icon" href="assets/images/fasting-96x96.png" />
+    <meta name="apple-mobile-web-app-statuc-bar" content="#aa7700" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137426789-2"></script>-->
     <script>
@@ -47,20 +53,74 @@
             </p>
           </a>
           <% }) %>
+          <div class="choose__card custom">
+            <div class="choose__custom">
+              <img src="assets/icon-setting2.svg" alt="" />Custom
+            </div>
+            <p class="choose__cardSubtitle">Create your own fasting plan</p>
+          </div>
         </div>
       </section>
     </div>
 
+    <!-- Modal Custom -->
+    <div class="modal custom">
+      <div class="modal__container">
+        <i class="modal__icon">
+          <svg
+            version="1.1"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <g fill="">
+              <path
+                opacity="0"
+                d="M0,0h24v24h-24Z"
+                transform="matrix(-1,1.22465e-16,-1.22465e-16,-1,24,24)"
+              ></path>
+              <path
+                d="M13.41,12l4.3,-4.29l6.9121e-08,-6.91211e-08c0.392122,-0.392122 0.392122,-1.02788 -1.38242e-07,-1.42c-0.392122,-0.392122 -1.02788,-0.392122 -1.42,1.38242e-07l-4.29,4.3l-4.29,-4.3l6.9121e-08,6.91211e-08c-0.392122,-0.392122 -1.02788,-0.392122 -1.42,-1.38242e-07c-0.392122,0.392122 -0.392122,1.02788 -1.38242e-07,1.42c0,0 0,1.77636e-15 0,1.77636e-15l4.3,4.29l-4.3,4.29l2.29995e-08,-2.28117e-08c-0.392122,0.38892 -0.394718,1.02208 -0.00579837,1.4142c0.00192484,0.00194069 0.00385763,0.00387348 0.00579832,0.00579832l-3.12092e-08,-3.14662e-08c0.38892,0.392122 1.02208,0.394718 1.4142,0.00579839c0.00194069,-0.00192484 0.00387348,-0.00385763 0.00579832,-0.00579832l4.29,-4.3l4.29,4.3l-3.12092e-08,-3.14662e-08c0.38892,0.392122 1.02208,0.394718 1.4142,0.00579839c0.00194069,-0.00192484 0.00387348,-0.00385763 0.00579832,-0.00579832l4.18882e-08,-4.15461e-08c0.392122,-0.38892 0.394718,-1.02208 0.00579824,-1.4142c-0.00192484,-0.00194069 -0.00385763,-0.00387348 -0.00579832,-0.00579832Z"
+              ></path>
+            </g>
+          </svg>
+        </i>
+        <div class="modal__content">
+          <div class="modal__subTitle">Chọn thời gian bất đầu nhịn ăn</div>
+          <form action="">
+            <h2 class="modal__title">
+              <input type="datetime-local" name="" id="" />
+            </h2>
+            <p class="modal__desc">
+              Nhấn vào "Bắt đầu nhịn ăn" để bắt đầu. Nhấn vào "Kết thúc nhịn ăn"
+              khi bạn bắt đầu ăn.
+            </p>
+            <div class="modal__ctaContainer">
+              <button class="cta custom">Bất đầu nhịn ăn</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- end Modal Custom -->
+    <!-- import edit account modal -->
+    <%- include('component/modalEditAccount');%>
     <!-- // import footer For Mobile -->
     <%- include('component/footerMobile');%>
 
     <!-- import thu vien  -->
     <script src="component/jquery/dist/jquery.min.js"></script>
-    <script src="component/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="component/AlertifyJS/build/alertify.js"></script>
     <!-- My Js -->
-    <script src="js/logout.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/logout.js"></script>
+    <script src="js//pwa/pw.js"></script>
+
     <script src="js/anime.js"></script>
     <script src="js/calculateTime.js"></script>
+    <script src="js/choose.js"></script>
+    <script src="js/editAccount.js"></script>
+    <script src="js/updateUser.js"></script>
   </body>
 </html>

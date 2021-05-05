@@ -21,3 +21,18 @@ module.exports.getHome = async (req, res) => {
     return res.status(500).send(error);
   }
 };
+
+module.exports.getCountUp = async (req, res) => {
+  if (!req.user.plan.isChoose) res.redirect("/");
+
+  let nd = new Date(req.user.plan.chooseAt);
+  let plan = await PlanModel.model.findPlanById(req.user.plan.planId);
+  nd.setHours(nd.getHours() + plan.fastHours);
+  let newDate = new Date(nd);
+  // lấy định dạng HH:MM lúc bắt đầu
+
+  res.render("countdown_home", {
+    user: req.user,
+    newDate: newDate,
+  });
+};

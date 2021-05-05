@@ -53,7 +53,6 @@ function changeWaterAmount() {
     .off("click")
     .on("click", function () {
       let data = $(this).data("drink");
-
       $("#addDrink > span").text(data);
       $.ajax({
         url: "/updateWaterAmount",

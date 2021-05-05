@@ -5,9 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tìm hiểu</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <link rel="stylesheet" href="component/AlertifyJS/build/css/alertify.css" />
     <script src="/socket.io/socket.io.js"></script>
     <link rel="stylesheet" href="css/swiper-bundle.css" />
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#2196f3" />
+    <!-- ios Support -->
+    <link rel="apple-touch-icon" href="assets/images/fasting-96x96.png" />
+    <meta name="apple-mobile-web-app-statuc-bar" content="#aa7700" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137426789-2"></script>-->
     <script>
@@ -190,17 +196,22 @@
         </section>
       </div>
     </div>
-
+    <!-- import edit account modal -->
+    <%- include('component/modalEditAccount');%>
     <!-- // import footer For Mobile -->
     <%- include('component/footerMobile');%>
-
+    <script src="js/main.js"></script>
     <!-- import thu vien  -->
     <script src="component/jquery/dist/jquery.min.js"></script>
-    <script src="component/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="component/AlertifyJS/build/alertify.js"></script>
     <!--My JS-->
+    <script src="js//pwa/pw.js"></script>
     <script src="js/logout.js"></script>
     <script src="js/swiper-bundle.js"></script>
-    <script src="js/main.js"></script>
+
     <script src="js/modal_learn.js"></script>
+    <script src="js/editAccount.js"></script>
+    <script src="js/updateUser.js"></script>
   </body>
 </html>

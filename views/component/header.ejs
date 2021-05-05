@@ -1,6 +1,8 @@
 <!--Navigation-->
 <nav class="mainNav">
-  <a href="/" class="mainNav__logo"><img src="assets/logo.svg" alt="" /></a>
+  <a href="/countup" class="mainNav__logo"
+    ><img src="assets/logo.svg" alt=""
+  /></a>
   <div class="mainNav__menu">
     <div class="mainNav__links">
       <a href="" class="mainNav__link">Giới thiệu</a>
@@ -8,9 +10,15 @@
       <a href="plan" class="mainNav__link">Kế hoạch</a>
     </div>
     <div class="mainNav__user">
-      <div class="mainNav__userName">Xin chào!, <%= user.username%></div>
+      <div class="mainNav__userName" id="navbar-username">
+        Xin chào!, <%= user.username%>
+      </div>
       <figure class="mainNav__userImage">
-        <img src="assets/profile.jpg" alt="" />
+        <img
+          src="assets/images/users/<%=user.avatar%>"
+          alt="avatar"
+          id="navbar_avatar"
+        />
       </figure>
       <div class="mainNav__userMenu">
         <a href="/mine" class="mainNav__userText account">
@@ -44,7 +52,7 @@
           </svg>
           Hồ sơ</a
         >
-        <a href="#" class="mainNav__userText">
+        <a href="#" class="mainNav__userText editAccount">
           <?xml version="1.0"?>
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -1,4 +1,4 @@
-const socket = io("http://localhost:8888");
+const socket = io.connect("http://localhost:8888");
 
 function countDown(timelimit, timepassed, timeStart, notice) {
   // Credit: Mateusz Rybczonec
@@ -62,6 +62,14 @@ function countDown(timelimit, timepassed, timeStart, notice) {
         // document.getElementById("countDown__subtitle").innerHTML =
         //   "Đang nhịn ăn";
         socket.emit("time-passed-level", timePassed);
+        if (timePassed == timelimit - 60 * 60) {
+          socket.emit("push-notification-before-1-hour");
+        }
+        // đẩy thông báo nhắc user vào khi quá 1 ngày ( 2,3 ngày fasting)
+        if ((timePassed - timelimit) % 86400 === 0) {
+          let data = (timePassed - timelimit) % 86400;
+          socket.emit("push-notification-after-fasting-1-day", data);
+        }
 
         document.getElementById("base-timer-label").innerHTML = formatTime(
           timePassed
@@ -252,7 +260,7 @@ function countDown(timelimit, timepassed, timeStart, notice) {
 }
 
 //let timePassed = timelimit - timeleft;
-
+// countDown(7200, 7195, 5, "fasting");
 // khi ấn nút kết thúc Fasting
 
 // bắt sự kiện user online để tính thời gian đã countUp khi vẫn đang fasting

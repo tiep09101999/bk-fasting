@@ -5,9 +5,9 @@ const sliderAboutItems = [
     level: "Lv.1",
     time: "0 - 2h",
     min: 0,
-    title: "Blood Suger Raises",
+    title: "Tăng lượng đường trong máu",
     desc:
-      "You'll feel pretty normal during the fist hours of fasting because your body is going through the regular process of breaking down glycogen. Your blood sugar rises. Your pancreas releases insulin to break down glucose for energy and stores the extra glucose for later.",
+      "Bạn sẽ cảm thấy khá bình thường trong những giờ nhịn ăn vì cơ thể bạn đang trải qua quá trình phá vỡ glycogen thường xuyên. Lượng đường trong máu của bạn tăng lên. Tuyến tụy của bạn tiết ra insulin để phân hủy glucose thành năng lượng và dự trữ lượng glucose bổ sung cho sau này",
   },
   {
     img: `assets/icon-leaf.svg`,
@@ -15,9 +15,9 @@ const sliderAboutItems = [
     level: "Lv.2",
     time: "2h - 5h",
     min: 7200,
-    title: "Blood Suger Falls",
+    title: "Hạ lượng đường trong máu",
     desc:
-      "As a result of the effects of insulin, your blood sugar decreases to near normal after spiking. And it typically doesn't continue climbing because insulin is immediately delivered into your circulatory system after eating",
+      " Do tác dụng của insulin, lượng đường trong máu của bạn giảm xuống gần mức bình thường sau khi tăng đột biến. Và nó thường không tiếp tục leo núi vì insulin ngay lập tức được đưa vào hệ thống tuần hoàn của bạn sau khi ăn",
   },
   {
     img: `assets/icon-leaf.svg`,
@@ -25,12 +25,12 @@ const sliderAboutItems = [
     level: "Lv.3",
     time: "5h - 8h",
     min: 18000,
-    title: "Glycogen Reserve Drops",
+    title: "Dự trữ Glycogen",
     desc:
-      "Feeling hungry? Your stomach is reminding you that it's been a while since your last meal; however, you're not actually that hungry. <br/><br/> " +
-      " Starve to death? Shrivel up and lose your muscle mass? None of this is going to happen. " +
-      " Actually, your glycogen reserves will begin to fall, and you might even lose a little body fat. <br/><br/> " +
-      " Your body will continue to digest your last food intake. It starts to use stored glocuse for energy, and continues to function as if you will eat again soon. ",
+      "Bạn có cảm thấy đói? Dạ dày của bạn đang nhắc nhở bạn rằng đã lâu rồi kể từ bữa ăn cuối cùng của bạn; tuy nhiên, bạn không thực sự đói như vậy. <br/><br/> " +
+      " Kiệt sức vì đói? Làm mất khối lượng cơ bắp của bạn? Không có điều này sẽ xảy ra. " +
+      "Trên thực tế, dự trữ glycogen của bạn sẽ bắt đầu giảm, và bạn thậm chí có thể giảm một chút mỡ trong cơ thể. <br/><br/> " +
+      " Cơ thể bạn sẽ tiếp tục tiêu hóa lượng thức ăn cuối cùng của bạn. Nó bắt đầu sử dụng glocuse dự trữ để làm năng lượng, và tiếp tục hoạt động như thể bạn sẽ sớm ăn trở lại. ",
   },
   {
     img: `assets/icon-leaf.svg`,
@@ -40,7 +40,7 @@ const sliderAboutItems = [
     min: 28800,
     title: "Gluconeogenesis",
     desc:
-      "8 hours after your last meal, your liver will use up the last of its glucose reserves. Now your body goes into a state called gluconeogenesis, which indicates that your body has switched into the fasting mode. <br/><br/> Studies show that gluconeogenesis, a metabolic pathway, results in the generation of glucose from body fat instead of carbohydrates. It increases your calorie burning.",
+      "8 giờ sau bữa ăn cuối cùng của bạn, gan của bạn sẽ sử dụng hết lượng glucose dự trữ cuối cùng. Lúc này cơ thể bạn chuyển sang trạng thái gọi là gluconeogenesis, điều này cho thấy cơ thể bạn đã chuyển sang chế độ nhịn ăn. <br/> <br/> Các nghiên cứu cho thấy gluconeogenesis, một con đường trao đổi chất, dẫn đến việc tạo ra glucose từ chất béo trong cơ thể thay vì carbohydrate. Nó làm tăng lượng calo đốt cháy của bạn.",
   },
   {
     img: `assets/icon-leaf.svg`,
@@ -48,9 +48,9 @@ const sliderAboutItems = [
     level: "Lv.5",
     time: "10h - 12h",
     min: 36000,
-    title: "Little Glycongen Left",
+    title: "Lượng dự trữ glycogen sắp hết",
     desc:
-      "Your glycogen reserves are running out! As a result, you may become irrtable or hangry. Just relax, it's a sign that your body is burning fat! <br/><br/> With little glycogen left, fat cells will release fat into your bloodstream. They also go straight into your liver and are converted into energy for your body. Actually, you are cheating your body into burning fat in order to survive.",
+      "Dự trữ glycogen của bạn sắp hết! Kết quả là, bạn có thể trở nên khó chịu hoặc nôn nao. Chỉ cần thư giãn, đó là dấu hiệu cho thấy cơ thể bạn đang đốt cháy chất béo! <br/> <br/> Khi còn lại ít glycogen, các tế bào mỡ sẽ giải phóng chất béo vào máu của bạn. Chúng cũng đi thẳng vào gan của bạn và được chuyển hóa thành năng lượng cho cơ thể. Trên thực tế, bạn đang lừa dối cơ thể đốt cháy chất béo để tồn tại.",
   },
   {
     img: `assets/icon-leaf.svg`,
@@ -58,13 +58,13 @@ const sliderAboutItems = [
     level: "Lv.6",
     time: "12h - 18h",
     min: 43200,
-    title: "Ketosis State",
+    title: "Trạng thái Ketosis",
     desc:
-      " Now it's the turn of fat to fuel your body. you're in the metabolic state called ketosis. " +
-      "  The glycogen is almost used up and your liver converts fat into ketone bodies - an alternative energy source for your body. <br/><br/> " +
-      " Fat reserves are readily released and consumed. For this reason, ketosis is sometimes referred to as the body's " +
-      '"fat-burning" mode.' +
-      " Ketosis produces fewer inflammatory by-products, so it provides health benefits to your heart, metabolism and brain.",
+      " Bây giờ đến lượt chất béo để cung cấp năng lượng cho cơ thể bạn. bạn đang ở trạng thái chuyển hóa được gọi là ketosis. " +
+      " Glycogen gần như được sử dụng hết và gan của bạn sẽ chuyển hóa chất béo thành thể xeton - một nguồn năng lượng thay thế cho cơ thể bạn. <br/><br/> " +
+      " Chất béo dự trữ dễ dàng được giải phóng và tiêu thụ. Vì lý do này, ketosis đôi khi được gọi là cơ thể " +
+      'chế độ "đốt cháy chất béo".' +
+      "  Ketosis tạo ra ít sản phẩm phụ gây viêm hơn, vì vậy nó mang lại lợi ích sức khỏe cho tim, sự trao đổi chất và não của bạn.",
   },
   {
     img: `assets/icon-leaf.svg`,
@@ -72,9 +72,9 @@ const sliderAboutItems = [
     level: "Lv.7",
     time: "18h - 24h",
     min: 64800,
-    title: "Burn Fat",
+    title: "Đốt cháy chất béo",
     desc:
-      "The longer you fast, the deeper into ketosis you'll go. By 18 hours, your body has switched into fat-burning mode. Research shows that after fasting for 12 to 25 hours, the energy supply from fat will increase by 60%, and it has a significant increase after 18 hours. Now: <br/><br/> 1.The level of ketone bodies rises. <br/> 2. Ketones act as signaling molecules to tell your body how to better regulate its metabolism in a stressful enviroment. <br/> 3. Your body's anti-inflammatory and rejuvenation processed are ready to work.",
+      "Bạn nhịn ăn càng lâu, bạn sẽ càng đi sâu vào trạng thái ketosis. Đến 18 giờ, cơ thể bạn đã chuyển sang chế độ đốt cháy chất béo. Nghiên cứu cho thấy sau khi nhịn ăn từ 12 đến 25 giờ, năng lượng cung cấp từ chất béo sẽ tăng 60%, và nó có sự gia tăng đáng kể sau 18 giờ. Bây giờ: <br/> <br/> 1. Mức độ cơ thể xeton tăng lên. <br/> 2. Xeton hoạt động như các phân tử báo hiệu cho cơ thể bạn biết cách điều chỉnh sự trao đổi chất tốt hơn trong môi trường căng thẳng. <br/> 3. Quá trình chống viêm và trẻ hóa cơ thể của bạn đã sẵn sàng hoạt động.",
   },
   {
     img: `assets/icon-leaf.svg`,
@@ -84,9 +84,9 @@ const sliderAboutItems = [
     min: 86400,
     title: "Autophagy",
     desc:
-      "At this point, your body triggers autophagy (literally means " +
+      "Tại thời điểm này, cơ thể bạn kích hoạt autophagy (nghĩa đen là" +
       '"self-devouring")' +
-      ". Cells start to clean up their house. they remove unnecessary of dysfunctional components. It's a good thing because it allows the orderly degradation and recycling of cellular components. <br/><br/> During autophagy, cells break down viruses, bacteria and damaged components. In this process, you get the energy to make new cell parts. It's significant for cell's health, renewal, and survival. The main benefit of autophagy is best known as the body turning the clock back and creating younger cells.",
+      ". Các tế bào bắt đầu dọn dẹp ngôi nhà của họ. họ loại bỏ các thành phần không cần thiết của chức năng. Đó là một điều tốt vì nó cho phép phân hủy và tái chế có trật tự các thành phần tế bào. <br/> <br/> Trong quá trình autophagy, các tế bào sẽ phá vỡ vi rút, vi khuẩn và các thành phần bị hư hỏng. Trong quá trình này, bạn nhận được năng lượng để tạo ra các bộ phận tế bào mới. Nó có ý nghĩa đối với sức khỏe, sự đổi mới và sự tồn tại của tế bào. Lợi ích chính của autophagy được biết đến nhiều nhất là cơ thể quay ngược đồng hồ và tạo ra các tế bào trẻ hơn.",
   },
   {
     img: `assets/icon-leaf.svg`,
@@ -94,9 +94,9 @@ const sliderAboutItems = [
     level: "Lv.9",
     time: "48h - 56h",
     min: 172800,
-    title: "Growth Hormone Goes Up",
+    title: "Hormone tăng trưởng tăng lên",
     desc:
-      "Your growth hormone level is much higher than the level at which it was before fasting. This benefits from the ketone bodies production and hunger hormone secretion during fasting. Growth hormone helps increase your lean muscle mass and improve your cardiovascular health.",
+      "Mức độ hormone tăng trưởng của bạn cao hơn nhiều so với mức trước khi nhịn ăn. Điều này có lợi từ việc cơ thể sản xuất xeton và tiết ra hormone đói khi nhịn ăn. Hormone tăng trưởng giúp tăng khối lượng cơ nạc và cải thiện sức khỏe tim mạch của bạn.",
   },
   {
     img: `assets/icon-leaf.svg`,
@@ -104,9 +104,9 @@ const sliderAboutItems = [
     level: "Lv.10",
     time: "56h - 72h",
     min: 201600,
-    title: "Sensitive to Insulin",
+    title: "Nhạy cảm với Insulin",
     desc:
-      "Your insulin is at its lowest level since fasting. It makes you more insulin sensitive, which is an especially good thing if you have a high risk of developing diabetes. <br/><br/> Lowering your insulin levels has a range of health benefits both short term and long term, such as activating autophagy and reducing inflammation.",
+      "Insulin của bạn đang ở mức thấp nhất kể từ khi nhịn ăn. Nó làm cho bạn nhạy cảm hơn với insulin, đây là một điều đặc biệt tốt nếu bạn có nguy cơ mắc bệnh tiểu đường cao. <br/> <br/> Giảm mức insulin mang lại nhiều lợi ích cho sức khỏe cả ngắn hạn và dài hạn, chẳng hạn như kích hoạt chế độ tự động thở và giảm viêm.",
   },
   {
     img: `assets/icon-leaf.svg`,
@@ -114,17 +114,17 @@ const sliderAboutItems = [
     level: "Lv.11",
     time: "> 72h",
     min: 259200,
-    title: "Immune Cells Regenerate",
+    title: "Tái tạo tế bào miễn dịch",
     desc:
-      '"Survival of the fittest."' +
-      " Your body turns down cellular survival pathways and recycles immune cells that are damaged when fighting viruses, bacteria, and germs. <br/>" +
-      "In order to fill " +
-      '"the vacancy of the guardians"' +
-      ", your body regenerates new immunce cells at a rapid pace. " +
-      " It starts the immune system regeneratin and shifts cells to a state of self-renewal. Your immune system becomes stronger and stronger. <br/>" +
-      " Scientists are still studying on COVID 19, any medicines and treatments should be taken under the guidance of the doctor. <br/> " +
-      " If you feel uncomfortable, you should immediately stop fasting and consult your doctor. <br/> " +
-      "     Fasting is a healthy lifestyle, it should be carried out under good physical conditions",
+      '"Sự sống sót của những người khỏe mạnh nhất."' +
+      " Cơ thể của bạn từ chối các con đường tồn tại của tế bào và tái chế các tế bào miễn dịch bị tổn thương khi chống lại vi rút, vi khuẩn và vi trùng. <br/>" +
+      "Để lấp vào " +
+      '"vị trí tuyển dụng của những người bảo vệ"' +
+      ", cơ thể bạn tái tạo các tế bào non mới với tốc độ nhanh chóng. " +
+      "Nó bắt đầu tái tạo hệ thống miễn dịch và chuyển các tế bào sang trạng thái tự đổi mới. Hệ thống miễn dịch của bạn ngày càng trở nên mạnh mẽ hơn. <br/>" +
+      " Các nhà khoa học vẫn đang nghiên cứu về COVID 19, mọi loại thuốc và phương pháp điều trị cần được thực hiện dưới sự hướng dẫn của bác sĩ. <br/> " +
+      " Nếu cảm thấy khó chịu, bạn nên ngừng nhịn ăn ngay lập tức và hỏi ý kiến ​​bác sĩ. <br/> " +
+      "     Ăn chay là một lối sống lành mạnh, cần được thực hiện trong điều kiện thể chất tốt",
   },
 ];
 window.addEventListener("load", (event) => {
@@ -364,7 +364,26 @@ window.addEventListener("load", (event) => {
   }
 
   contentMedia2();
+
+  // open endFasting Input
+  function openEndFastingInput() {
+    const iconEdit = document.querySelector(".modal__endFastingClose"),
+      endFastingInput = document.querySelector(".modal__endFastingInput");
+
+    iconEdit.addEventListener("click", openInput);
+
+    function openInput() {
+      if (endFastingInput.classList.contains("open")) {
+        endFastingInput.classList.remove("open");
+      } else {
+        endFastingInput.classList.add("open");
+      }
+    }
+  }
+
+  openEndFastingInput();
 });
+
 socket.on("req-time-passed-level", (data) => {
   for (let i = sliderAboutItems.length - 1; i >= 0; i--) {
     if (data > sliderAboutItems[i].min) {

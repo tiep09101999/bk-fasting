@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="css/main.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
     <script src="/socket.io/socket.io.js"></script>
+    <script src="js/cdn.chart.js"></script>
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#2196f3" />
+    <!-- ios Support -->
+    <link rel="apple-touch-icon" href="assets/images/fasting-96x96.png" />
+    <link rel="stylesheet" href="component/AlertifyJS/build/css/alertify.css" />
+    <meta name="apple-mobile-web-app-statuc-bar" content="#aa7700" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137426789-2"></script>-->
     <script>
@@ -117,7 +124,47 @@
               <p class="mine__noteTitle">Đã hoàn thành</p>
               <p class="mine__noteTitle two">24 giờ</p>
             </div>
-            <div class="mine__chart"></div>
+            <div class="mine__chart">
+              <div>
+                <canvas id="myChart"></canvas>
+              </div>
+              <script>
+                // <block:setup:1>
+                const label1 = [
+                  "January",
+                  "February",
+                  "March",
+                  "April",
+                  "May",
+                  "June",
+                ];
+                let data1 = {
+                  labels: label1,
+                  datasets: [
+                    {
+                      label: "Nhịn ăn gần đây",
+                      backgroundColor: "rgb(255, 99, 132)",
+                      borderColor: "rgb(255, 99, 132)",
+                      data: [0, 10, 5, 2, 200, 30, 45],
+                    },
+                  ],
+                };
+                // </block:setup>
+
+                // <block:config:0>
+                let config1 = {
+                  type: "line",
+                  data1,
+                  options: {},
+                };
+                // </block:config>
+
+                var myChart1 = new Chart(
+                  document.getElementById("myChart"),
+                  config1
+                );
+              </script>
+            </div>
           </div>
 
           <div class="mine__card">
@@ -139,7 +186,55 @@
                 <img src="assets/icon-plus.svg" alt="" />
               </div>
             </div>
-            <div class="mine__chart"></div>
+            <div class="mine__chart">
+              <div>
+                <canvas id="myChart2"></canvas>
+              </div>
+              <script>
+                // <block:setup:1>
+                const label2 = [
+                  "January",
+                  "February",
+                  "March",
+                  "April",
+                  "May",
+                  "June",
+                ];
+                let data2 = {
+                  labels: label2,
+                  datasets: [
+                    {
+                      label: "Nhịn ăn gần đây",
+                      backgroundColor: "rgb(255, 99, 132)",
+                      borderColor: "rgb(255, 99, 132)",
+                      data: [0, 10, 5, 2, 20, 30, 45],
+                    },
+                  ],
+                };
+                // </block:setup>
+
+                // <block:config:0>
+                let config2 = {
+                  type: "line",
+                  data2,
+                  options: {},
+                };
+                // </block:config>
+
+                module.exports = {
+                  actions: [],
+                  config2: config2,
+                };
+              </script>
+              <script>
+                // === include 'setup' then 'config' above ===
+
+                var myChart2 = new Chart(
+                  document.getElementById("myChart2"),
+                  config2
+                );
+              </script>
+            </div>
           </div>
 
           <div class="mine__card">
@@ -153,20 +248,74 @@
               <p class="mine__noteTitle">Đã hoàn thành</p>
               <p class="mine__noteTitle two">24 giờ</p>
             </div>
-            <div class="mine__chart"></div>
+            <div class="mine__chart">
+              <div>
+                <canvas id="myChart3"></canvas>
+              </div>
+              <script>
+                // <block:setup:1>
+                const label3 = [
+                  "January",
+                  "February",
+                  "March",
+                  "April",
+                  "May",
+                  "June",
+                ];
+                let data3 = {
+                  labels: label3,
+                  datasets: [
+                    {
+                      label: "Lượng nước uống gần đây",
+                      backgroundColor: "rgb(255, 99, 132)",
+                      borderColor: "rgb(255, 99, 132)",
+                      data: [0, 100, 5, 2, 200, 30, 45],
+                    },
+                  ],
+                };
+                // </block:setup>
+
+                // <block:config:0>
+                let config3 = {
+                  type: "line",
+                  data3,
+                  options: {},
+                };
+                // </block:config>
+
+                module.exports = {
+                  actions: [],
+                  config3: config3,
+                };
+              </script>
+              <script>
+                // === include 'setup' then 'config' above ===
+
+                var myChart3 = new Chart(
+                  document.getElementById("myChart3"),
+                  config3
+                );
+              </script>
+            </div>
           </div>
         </div>
       </section>
     </div>
-
+    <!-- import edit account modal -->
+    <%- include('component/modalEditAccount');%>
     <!-- // import footer For Mobile -->
     <%- include('component/footerMobile');%>
-
+    <script src="js/main.js"></script>
     <!-- import thu vien  -->
     <script src="component/jquery/dist/jquery.min.js"></script>
-    <script src="component/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="component/AlertifyJS/build/alertify.js"></script>
     <!-- My Js -->
+    <script src="js/pwa/pw.js"></script>
+    <script src="js/chartEat.js"></script>
+    <script src="js/chart.min.js"></script>
     <script src="js/logout.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/editAccount.js"></script>
+    <script src="js/updateUser.js"></script>
   </body>
 </html>

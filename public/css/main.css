@@ -107,6 +107,12 @@ body {
   box-shadow: 0px 10px 24px -4px rgba(232, 120, 103, 0.5);
 }
 
+@media screen and (max-width: 799px) {
+  .cta.white {
+    margin-top: 32px;
+  }
+}
+
 .cta.white:hover {
   -webkit-box-shadow: 0px 0px 0px 0px rgba(232, 120, 103, 0.28);
   box-shadow: 0px 0px 0px 0px rgba(232, 120, 103, 0.28);
@@ -138,6 +144,18 @@ body {
 }
 
 .cta.detail:hover {
+  -webkit-box-shadow: 0px 0px 0px 0px rgba(190, 194, 228, 0.28);
+  box-shadow: 0px 0px 0px 0px rgba(190, 194, 228, 0.28);
+}
+
+.cta.custom {
+  margin-top: 32px;
+  background: linear-gradient(122.47deg, #5658d1 -1.23%, #c0c1ec 92.07%);
+  -webkit-box-shadow: 0px 8px 24px -4px rgba(190, 194, 228, 0.28);
+  box-shadow: 0px 8px 24px -4px rgba(190, 194, 228, 0.28);
+}
+
+.cta.custom:hover {
   -webkit-box-shadow: 0px 0px 0px 0px rgba(190, 194, 228, 0.28);
   box-shadow: 0px 0px 0px 0px rgba(190, 194, 228, 0.28);
 }
@@ -196,7 +214,7 @@ body {
 
 @media screen and (max-width: 799px) {
   .mainNav__logo {
-    width: 125px;
+    width: 130px;
   }
 }
 
@@ -268,8 +286,15 @@ body {
   margin-right: 14px;
 }
 
+@media screen and (max-width: 799px) {
+  .mainNav__userName {
+    font-size: 14px;
+  }
+}
+
 .mainNav__userImage {
   width: 40px;
+  min-width: 40px;
   height: 40px;
   border-radius: 100%;
   overflow: hidden;
@@ -433,11 +458,11 @@ body {
 }
 
 .mainNav__button:hover {
-  opacity: 0.7;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .choose {
-  padding-top: 32px;
+  padding-top: 64px;
 }
 
 @media screen and (max-width: 799px) {
@@ -508,6 +533,7 @@ body {
   box-shadow: 0px 4px 20px -4px rgba(0, 0, 0, 0.25);
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .choose__card:hover {
@@ -515,6 +541,7 @@ body {
   transform: translateY(-6px);
   -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.25);
+  background-color: rgba(232, 120, 103, 0.6);
 }
 
 .choose__card.anime {
@@ -542,6 +569,50 @@ body {
   20% {
     opacity: 0;
   }
+}
+
+.choose__card.custom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.choose__custom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.choose__custom img {
+  width: 40px;
+  height: 40px;
+  margin-right: 8px;
+}
+
+@media screen and (max-width: 799px) {
+  .choose__custom {
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
+
+.choose__cardSubtitle {
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  max-width: 260px;
+  width: 100%;
 }
 
 .choose__cardTime {
@@ -676,12 +747,6 @@ body {
   height: 80vh;
 }
 
-@media screen and (max-width: 799px) {
-  .container {
-    height: 540px;
-  }
-}
-
 .content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -811,8 +876,8 @@ body {
 /* Count down module */
 .base-timer {
   position: relative;
-  width: 300px;
-  height: 300px;
+  width: 320px;
+  height: 320px;
   background-color: white;
   border-radius: 100%;
 }
@@ -909,6 +974,12 @@ body {
   align-items: center;
   margin-top: 20px;
   margin-bottom: 40px;
+}
+
+@media screen and (max-width: 799px) {
+  .countDown {
+    margin-bottom: 32px;
+  }
 }
 
 .countDown__title {
@@ -1277,7 +1348,7 @@ body {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 56px;
 }
 
 @media screen and (max-width: 799px) {
@@ -1643,6 +1714,10 @@ body {
   opacity: 0;
   -webkit-transition: all 0.6s ease;
   transition: all 0.6s ease;
+}
+
+.modal__title input {
+  font-size: 22px;
 }
 
 .modal__title.drink {
@@ -2425,6 +2500,34 @@ body {
   cursor: pointer;
 }
 
+.modal__endFastingInput {
+  width: 100%;
+  height: 0px;
+  opacity: 0;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.modal__endFastingInput input {
+  width: 100%;
+  background-color: #f1f5f8;
+  height: 40px;
+  padding: 0 20px;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  height: 0px;
+  margin-top: 4px;
+}
+
+.modal__endFastingInput.open {
+  height: initial;
+  opacity: 1;
+}
+
+.modal__endFastingInput.open input {
+  height: 40px;
+}
+
 .modal__endFastingCardIcons {
   display: -ms-grid;
   display: grid;
@@ -2515,6 +2618,70 @@ body {
 .modal__ctaEndFasting.delete:hover {
   -webkit-box-shadow: 0px 0px 0px 0px rgba(86, 88, 209, 0.28);
   box-shadow: 0px 0px 0px 0px rgba(86, 88, 209, 0.28);
+}
+
+.modal__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.modal__form button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.modal__inputWrapper {
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+}
+
+.modal__inputWrapper label {
+  margin-bottom: 5px;
+  color: #10182f;
+}
+
+.modal__inputWrapper input {
+  border: solid 1px #bac1d6;
+  height: 48px;
+  border-radius: 5px;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.modal__inputWrapper select {
+  border: solid 1px #bac1d6;
+  height: 48px;
+  border-radius: 5px;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.modal__inputImage {
+  border: solid 1px transparent !important;
+  margin-bottom: 0px !important;
+  height: 24px !important;
 }
 
 .modal.open {
@@ -2997,41 +3164,34 @@ body {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  padding-top: 20px;
-  padding-bottom: 40px;
+  padding-top: 64px;
+  padding-bottom: 64px;
 }
 
 @media screen and (max-width: 799px) {
   .mine {
     height: 100%;
-    padding-top: 20px;
+    padding-top: 24px;
     padding-bottom: 80px;
   }
 }
 
 .mine__cards {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr) [4];
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  grid-gap: 40px;
 }
 
 @media screen and (max-width: 1023px) {
-  .mine__cards {
-    -ms-grid-columns: (1fr) [3];
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media screen and (max-width: 799px) {
-  .mine__cards {
-    -ms-grid-columns: (1fr) [2];
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media screen and (max-width: 511px) {
   .mine__cards {
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
@@ -3040,8 +3200,17 @@ body {
 
 .mine__card {
   background-color: white;
-  padding: 20px;
+  padding: 24px;
   border-radius: 5px;
+  height: 400px;
+  width: 100%;
+  max-width: 600px;
+}
+
+@media screen and (max-width: 799px) {
+  .mine__card {
+    padding: 20px;
+  }
 }
 
 .mine__header {
@@ -3084,12 +3253,12 @@ body {
 .mine__timeLine {
   height: 40px;
   background-color: #449e8f;
-  margin: 10px 0;
+  margin: 16px 0;
 }
 
 .mine__subCard {
   background-color: rgba(68, 158, 143, 0.5);
-  padding: 10px;
+  padding: 16px;
   border-radius: 5px;
 }
 
@@ -3244,7 +3413,7 @@ body {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 24px;
   color: #449e8f;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
@@ -3294,6 +3463,7 @@ body {
 .mine__cardIcon:nth-child(1),
 .mine__cardIcon:nth-child(2) {
   border-bottom: 2px solid #ecedee;
+  padding-top: 20px;
   padding-bottom: 20px;
   border-right: 2px solid #ecedee;
 }
@@ -3305,6 +3475,7 @@ body {
 .mine__cardIcon:nth-child(3),
 .mine__cardIcon:nth-child(4) {
   padding-top: 20px;
+  padding-bottom: 20px;
   border-right: 2px solid #ecedee;
 }
 
@@ -3412,7 +3583,7 @@ body {
 }
 
 .mine__chart {
-  height: 200px;
+  height: 280px;
   background-color: rgba(68, 158, 143, 0.2);
   margin-top: 20px;
 }
@@ -3596,7 +3767,7 @@ body {
 
 @media screen and (max-width: 799px) {
   .planSlider__heading {
-    margin-bottom: 16px;
+    margin-bottom: 24px;
   }
 }
 
@@ -3877,5 +4048,57 @@ body {
 .planSlider__card:hover .planSlider__link {
   height: 24px;
   opacity: 1;
+}
+
+.footer {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #363842;
+  padding: 64px;
+}
+
+@media screen and (max-width: 799px) {
+  .footer {
+    padding: 32px;
+    display: none;
+  }
+}
+
+.footer__text {
+  color: #f1f1f1;
+}
+
+canvas {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.chart-container {
+  width: 100%;
+}
+
+.chart.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-bottom: 40px;
 }
 /*# sourceMappingURL=main.css.map */
