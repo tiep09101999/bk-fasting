@@ -56,20 +56,10 @@ function updateUserInfo() {
     userInfo.username = $(this).val();
   });
   $("#editGender").bind("change", function () {
-    let gender = $(this).find(":selected").data("id");
+    let gender = $(this).find(":selected").data("gender");
     userInfo.gender = gender;
   });
-  $("#editGenderFemale").bind("click", function () {
-    let gender = $(this).val();
-    if (gender !== "female") {
-      alertify.notify("Giới tính phải được xác định", "error", 3);
-      $(this).val(originInfo.gender);
-      delete userInfo.gender;
-      return false;
-    }
-    userInfo.gender = $(this).val();
-    userInfo.gender = $(this).val();
-  });
+
   $("#editAddress").bind("change", function () {
     let address = $(this).val();
     if (address.length > 17 || address.length < 3) {
@@ -144,21 +134,30 @@ $(document).ready(function () {
     username: $("#editName").val(),
     address: $("#editAddress").val(),
     phone: $("#editPhone").val(),
-    // gender: $("#input-change-gender-male").is(":checked")
-    //   ? $("#input-change-gender-male").val()
-    //   : $("#input-change-gender-female").val(),
   };
   updateUserInfo();
   $("#btn-update-user").on("click", function () {
-    // if ($.isEmptyObject(userInfo) && !userAvatar) {
-    //   alertify.notify("Bạn chưa thay đổi dữ liệu", "error", 3);
-    //   return false;
-    // }
-    if (userAvatar) {
-      callUpdateAvatar();
+    if ($.isEmptyObject(userInfo) && !userAvatar) {
+      alertify.notify("Bạn chưa thay đổi dữ liệu", "error", 3);
+      return false;
     }
-    if (!$.isEmptyObject(userInfo)) {
-      callUpdateInfo();
-    }
+    Swal.fire({
+      title: "Bạn có chắc chắn muốn cập nhật thông tin?",
+
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Có",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        if (userAvatar) {
+          callUpdateAvatar();
+        }
+        if (!$.isEmptyObject(userInfo)) {
+          callUpdateInfo();
+        }
+      }
+    });
   });
 });

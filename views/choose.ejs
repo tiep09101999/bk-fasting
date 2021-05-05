@@ -53,7 +53,7 @@
             </p>
           </a>
           <% }) %>
-          <div class="choose__card custom">
+          <div class="choose__card2 custom">
             <div class="choose__custom">
               <img src="assets/icon-setting2.svg" alt="" />Custom
             </div>
@@ -89,14 +89,16 @@
           <div class="modal__subTitle">Chọn thời gian bất đầu nhịn ăn</div>
           <form action="">
             <h2 class="modal__title">
-              <input type="datetime-local" name="" id="" />
+              <input type="datetime-local" name="" id="custom-time" />
             </h2>
             <p class="modal__desc">
               Nhấn vào "Bắt đầu nhịn ăn" để bắt đầu. Nhấn vào "Kết thúc nhịn ăn"
               khi bạn bắt đầu ăn.
             </p>
             <div class="modal__ctaContainer">
-              <button class="cta custom">Bất đầu nhịn ăn</button>
+              <button class="cta custom" id="btn-start-custom-plan">
+                Bất đầu nhịn ăn
+              </button>
             </div>
           </form>
         </div>
@@ -122,5 +124,6 @@
     <script src="js/choose.js"></script>
     <script src="js/editAccount.js"></script>
     <script src="js/updateUser.js"></script>
+    <script src="js/customPlan.js"></script>
   </body>
 </html>

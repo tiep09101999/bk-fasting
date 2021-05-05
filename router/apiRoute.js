@@ -9,7 +9,6 @@ const userController = require("../controller/userController");
 router.put("/choose", authController.checkLoggedIn, async (req, res) => {
   try {
     let uid = req.body.uid;
-
     let userId = req.user._id;
     let plan = await PlanModel.model.findPlanById(uid);
     // req.user.toObject();
@@ -129,6 +128,12 @@ router.post("/addTimeLine", authController.checkLoggedIn, async (req, res) => {
     return res.status(500).send(error);
   }
 });
+router.put("/delete-end-fasting", async (req, res) => {
+  req.user.plan.chooseAt = Date.now();
+  req.user.plan.isEndFasting = true;
+  let updateUser = await UserModel.updateUser(req.user._id, req.user);
+  return res.status(200).send({ success: true });
+});
 
 router.put(
   "/user/update-info",
@@ -139,5 +144,34 @@ router.put(
   "/user/update-avatar",
   authController.checkLoggedIn,
   userController.updateAvatar
+);
+router.put(
+  "/choose-custom-plan",
+  authController.checkLoggedIn,
+  async (req, res) => {
+    let timeToStart = new Date(req.body.timeToStart).getTime();
+    console.log(req.body.timeToStart);
+    let currentTime = Date.now();
+    console.log(currentTime);
+    // cờ để tính toán thời điểm user chọn là tương lai hay quá khứ so với hiện tại
+    let flag = true;
+    req.user.plan = {
+      isChoose: true,
+      name: "custom",
+      chooseAt: timeToStart,
+      isEndFasting: false,
+    };
+    //  tính khoảng cách giữa hiện tại với thời gian user chọn
+    // nếu thời gian chọn là thời điểm tương lai thì flag = true và ngược lại
+    let distanceTime = timeToStart - currentTime;
+    if (timeToStart > currentTime) {
+      flag = true;
+    } else {
+      distanceTime = currentTime - timeToStart;
+      flag = false;
+    }
+    let updateUser = await UserModel.updateUser(req.user._id, req.user);
+    return res.status(200).send({ success: true });
+  }
 );
 module.exports = router;

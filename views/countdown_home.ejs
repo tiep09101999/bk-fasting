@@ -9,6 +9,7 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
     <link rel="stylesheet" href="component/AlertifyJS/build/css/alertify.css" />
+  
     <script src="/socket.io/socket.io.js"></script>
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#2196f3">
@@ -66,7 +67,11 @@
               <img src="assets/icon-red.svg" alt="" />Kết thúc dự kiến
             </div>
             <div class="countDown__timeNumber" id="timeEnd">
+              <% if(flag) {%>
               <%= new Date(newDate).toLocaleString()%>
+              <% } else { %>
+                Ấn kết thúc khi bạn muốn ăn
+              <% } %>
             </div>
           </div>  
           <% } %>
@@ -325,7 +330,7 @@
                   </div>
 
                   <div class="modal__btnEndFasting">
-                      <button class="modal__ctaEndFasting cta delete btnDeleteFasting">Xoá bỏ</button>
+                      <div class="modal__ctaEndFasting cta delete btnDeleteFasting" id="btnDeleteFasting">Xoá bỏ</div>
                       <div class="modal__ctaEndFasting cta" id="btnSaveFasting" data-time="<%= user.plan.chooseAt%>">Lưu lại</div>
                   </div>
               </form>

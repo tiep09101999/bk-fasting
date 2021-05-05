@@ -150,7 +150,7 @@ function countDown(timelimit, timepassed, timeStart, notice) {
         .getElementById("base-timer-path-remaining")
         .setAttribute("stroke-dasharray", circleDasharray);
     }
-  } else {
+  } else if (notice == "feeding") {
     let timePassed = timepassed;
     // biến timeTmp để tính khi vòng tròn lặp lại
     let timeTmp = timePassed % timelimit;
@@ -229,6 +229,219 @@ function countDown(timelimit, timepassed, timeStart, notice) {
     )}</span>
     </div>
     `;
+    function formatTime(time) {
+      let hours = Math.floor(time / 3600);
+      time = time % 3600;
+      let minutes = Math.floor(time / 60);
+      let seconds = time % 60;
+      if (hours < 10) {
+        hours = `0${hours}`;
+      }
+      if (minutes < 10) {
+        minutes = `0${minutes}`;
+      }
+      if (seconds < 10) {
+        seconds = `0${seconds}`;
+      }
+
+      return `${hours}:${minutes}:${seconds}`;
+    }
+
+    function calculateTimeFraction() {
+      const rawTimeFraction = timeTmp / timelimit;
+      return rawTimeFraction + (1 / timelimit) * (1 - rawTimeFraction);
+    }
+    function setCircleDasharray() {
+      const circleDasharray = `${(
+        calculateTimeFraction() * FULL_DASH_ARRAY
+      ).toFixed(0)} 283`;
+      document
+        .getElementById("base-timer-path-remaining")
+        .setAttribute("stroke-dasharray", circleDasharray);
+    }
+  } else if (notice == "custom-wait") {
+    if (new Date(timeStart).getHours() < 10) {
+      hours = "0" + new Date(timeStart).getHours();
+    } else {
+      hours = new Date(timeStart).getHours();
+    }
+    if (new Date(timeStart).getMinutes() < 10) {
+      minutes = "0" + new Date(timeStart).getMinutes();
+    } else {
+      minutes = new Date(timeStart).getMinutes();
+    }
+
+    let timestart = hours + ":" + minutes;
+
+    //let timePassed = timelimit - timeleft;
+    let timePassed = timepassed;
+    // biến timeTmp để tính khi vòng tròn lặp lại
+
+    let timerInterval = null;
+    let remainingPathColor = COLOR_CODES.info.color;
+
+    startTimer();
+
+    function onTimesUp() {
+      clearInterval(timerInterval);
+    }
+
+    function startTimer() {
+      timerInterval = setInterval(() => {
+        timePassed = timePassed -= 1;
+        // timeTmp dùng để xác định tỉ lệ time / timelimit
+
+        setCircleDasharray();
+
+        if (timePassed == 0) {
+          location.reload();
+        }
+
+        document.getElementById("base-timer-label").innerHTML = formatTime(
+          timePassed
+        );
+
+        // khi nhận đc thông báo đang trong quá trình feeding window ( đã end fasting )
+      }, 1000);
+    }
+    document.getElementById("app").innerHTML = `
+      <div class="base-timer">
+      <div class="countDown__subtitle" id="countDown__subtitle">Còn lại</div> 
+      <div class="countDown__timeStart" id="countDown__timeStart"> sẽ bắt đầu vào lúc</div>
+      <div class="countDown__numberStart" id="countDown__numberStart">${timestart}</div>
+      <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <g class="base-timer__circle">
+          <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+          <path
+              id="base-timer-path-remaining"
+              stroke-dasharray="0 283"
+              class="base-timer__path-remaining ${remainingPathColor}"
+              d="
+              M 50, 50
+              m -45, 0
+              a 45,45 0 1,0 90,0
+              a 45,45 0 1,0 -90,0
+              "
+          ></path>
+          </g>
+      </svg>
+      <span id="base-timer-label" class="base-timer__label">${formatTime(
+        timePassed
+      )}</span>
+      </div>
+      `;
+    function formatTime(time) {
+      let hours = Math.floor(time / 3600);
+      time = time % 3600;
+      let minutes = Math.floor(time / 60);
+      let seconds = time % 60;
+      if (hours < 10) {
+        hours = `0${hours}`;
+      }
+      if (minutes < 10) {
+        minutes = `0${minutes}`;
+      }
+      if (seconds < 10) {
+        seconds = `0${seconds}`;
+      }
+
+      return `${hours}:${minutes}:${seconds}`;
+    }
+
+    function calculateTimeFraction() {
+      const rawTimeFraction = timePassed / timelimit;
+      return rawTimeFraction + (1 / timelimit) * (1 - rawTimeFraction);
+    }
+    function setCircleDasharray() {
+      const circleDasharray = `${(
+        calculateTimeFraction() * FULL_DASH_ARRAY
+      ).toFixed(0)} 283`;
+      document
+        .getElementById("base-timer-path-remaining")
+        .setAttribute("stroke-dasharray", circleDasharray);
+    }
+  } else {
+    if (new Date(timeStart).getHours() < 10) {
+      hours = "0" + new Date(timeStart).getHours();
+    } else {
+      hours = new Date(timeStart).getHours();
+    }
+    if (new Date(timeStart).getMinutes() < 10) {
+      minutes = "0" + new Date(timeStart).getMinutes();
+    } else {
+      minutes = new Date(timeStart).getMinutes();
+    }
+
+    let timestart = hours + ":" + minutes;
+
+    //let timePassed = timelimit - timeleft;
+    let timePassed = timepassed;
+    // biến timeTmp để tính khi vòng tròn lặp lại
+    let timeTmp = timePassed % timelimit;
+
+    let timerInterval = null;
+    let remainingPathColor = COLOR_CODES.info.color;
+
+    startTimer();
+
+    function onTimesUp() {
+      clearInterval(timerInterval);
+    }
+
+    function startTimer() {
+      timerInterval = setInterval(() => {
+        timePassed = timePassed += 1;
+        // timeTmp dùng để xác định tỉ lệ time / timelimit
+        timeTmp = timePassed % timelimit;
+        setCircleDasharray();
+        // phát tín hiệu cho server nhận thời gian trôi qua
+
+        // document.getElementById("countDown__timeStart").innerHTML =
+        //   "bắt đầu vào lúc";
+        // document.getElementById("countDown__subtitle").innerHTML =
+        //   "Đang nhịn ăn";
+
+        document.getElementById("base-timer-label").innerHTML = formatTime(
+          timePassed
+        );
+        // khi vượt quá mục tiêu, hiện time
+        if (timePassed > timelimit) {
+          document
+            .getElementById("base-timer-path-remaining")
+            .classList.remove(info.color);
+          document
+            .getElementById("base-timer-path-remaining")
+            .classList.add(warning.color);
+        }
+        // khi nhận đc thông báo đang trong quá trình feeding window ( đã end fasting )
+      }, 1000);
+    }
+    document.getElementById("app").innerHTML = `
+      <div class="base-timer">
+      <div class="countDown__subtitle" id="countDown__subtitle">Đang nhịn ăn</div> 
+      <div class="countDown__timeStart" id="countDown__timeStart">bắt đầu vào lúc</div>
+      <div class="countDown__numberStart" id="countDown__numberStart">${timestart}</div>
+      <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <g class="base-timer__circle">
+          <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+          <path
+              id="base-timer-path-remaining"
+              stroke-dasharray="0 283"
+              class="base-timer__path-remaining ${remainingPathColor}"
+              d="
+              M 50, 50
+              m -45, 0
+              a 45,45 0 1,0 90,0
+              a 45,45 0 1,0 -90,0
+              "
+          ></path>
+          </g>
+      </svg>
+      <span id="base-timer-label" class="base-timer__label">${formatTime(
+        timePassed
+      )}</span>
+      </div>
+      `;
     function formatTime(time) {
       let hours = Math.floor(time / 3600);
       time = time % 3600;
