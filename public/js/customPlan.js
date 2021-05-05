@@ -3,8 +3,11 @@ function customPlan() {
   $("#btn-start-custom-plan")
     .off("click")
     .on("click", function () {
-      let time = $("#custom-time").val();
-      if (time.length < 1) {
+      let timeToStart = $("#custom-time").val();
+      let time = Date.now();
+      let distanceTime =
+        Math.floor((new Date(timeToStart).getTime() - time) / 1000) + 1;
+      if (timeToStart.length < 1) {
         alertify.notify("Bạn chưa chọn thời gian", "error", 3);
         return false;
       }
@@ -14,7 +17,8 @@ function customPlan() {
         url: "/choose-custom-plan",
         method: "put",
         data: {
-          timeToStart: time,
+          timeToStart: timeToStart,
+          timelimit: distanceTime,
         },
         success: function (data) {
           if (data.success) {

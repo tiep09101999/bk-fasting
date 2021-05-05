@@ -150,9 +150,9 @@ router.put(
   authController.checkLoggedIn,
   async (req, res) => {
     let timeToStart = new Date(req.body.timeToStart).getTime();
-    console.log(req.body.timeToStart);
+
     let currentTime = Date.now();
-    console.log(currentTime);
+
     // cờ để tính toán thời điểm user chọn là tương lai hay quá khứ so với hiện tại
     let flag = true;
     req.user.plan = {
@@ -161,15 +161,12 @@ router.put(
       chooseAt: timeToStart,
       isEndFasting: false,
     };
+    if (req.body.timelimit > 0) {
+      req.user.plan.chooseCustomPlan = req.body.timelimit;
+    }
     //  tính khoảng cách giữa hiện tại với thời gian user chọn
     // nếu thời gian chọn là thời điểm tương lai thì flag = true và ngược lại
-    let distanceTime = timeToStart - currentTime;
-    if (timeToStart > currentTime) {
-      flag = true;
-    } else {
-      distanceTime = currentTime - timeToStart;
-      flag = false;
-    }
+
     let updateUser = await UserModel.updateUser(req.user._id, req.user);
     return res.status(200).send({ success: true });
   }

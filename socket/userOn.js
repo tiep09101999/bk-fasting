@@ -20,7 +20,8 @@ let userOn = (io) => {
     // tính thời gian đã trôi qua
     let time = new Date();
     let choosePlanTime = socket.request.user.plan.chooseAt;
-    let flag = choosePlanTime >= time ? true : false;
+    let flag = choosePlanTime - 1000 >= time ? true : false;
+    let chooseCustomPlan = socket.request.user.plan.chooseCustomPlan;
     // khoảng cách 2 thời gian nếu user chọn custom plan
     let distanceTime = flag
       ? parseInt((choosePlanTime - time) / 1000)
@@ -32,7 +33,7 @@ let userOn = (io) => {
     // data này khi user chọn thời điểm ở tương lai và phải đợi đến
     let data_wait = {
       timePassed: distanceTime,
-      timelimit: 86400,
+      timelimit: chooseCustomPlan - 1,
       chooseAt: choosePlanTime,
       notice: "custom-wait",
     };
@@ -62,6 +63,7 @@ let userOn = (io) => {
             console.log(
               "User " + socket.request.user.username + " online - waiting"
             );
+            console.log(data_wait);
             socket.emit("req-user-online", data_wait);
           } else {
             console.log(

@@ -1,4 +1,4 @@
-let staticCacheName = "static-cache-v76";
+let staticCacheName = "static-cache-v83";
 let dynamicCacheName = "dynamic-cache-v1";
 
 let assets = [

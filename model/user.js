@@ -13,6 +13,8 @@ let UserSchema = new Schema({
     name: String,
     planId: String,
     chooseAt: Number,
+    // thời gian khi user click bắt đầu kế hoạch custom Plan ( k phải thời gian chọn trong input)
+    chooseCustomPlan: { type: Number, default: 0 },
     // lượng nước đã uống khi chọn 1 plan
     water: {
       // lượng nước user đã uống
