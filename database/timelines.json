@@ -1,0 +1,534 @@
+[{
+  "_id": {
+    "$oid": "6002e6444e9e9d58a85048ee"
+  },
+  "waterDrunk": 0,
+  "weight": 55,
+  "totalFastHours": "245 giờ 8 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b5",
+  "timeStart": 1609920265739,
+  "timeEnd": 1610802756373,
+  "planName": "20-4",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6002e6911f828a1240807949"
+  },
+  "waterDrunk": 0,
+  "weight": 55,
+  "totalFastHours": "245 giờ 9 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b5",
+  "timeStart": 1609920265739,
+  "timeEnd": 1610802833861,
+  "planName": "20-4",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6002e6bb1f828a124080794a"
+  },
+  "waterDrunk": 0,
+  "weight": 55,
+  "totalFastHours": "245 giờ 10 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b5",
+  "timeStart": 1609920265739,
+  "timeEnd": 1610802875171,
+  "planName": "20-4",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6002e77837bb2967a831059d"
+  },
+  "waterDrunk": 0,
+  "weight": 55,
+  "totalFastHours": "245 giờ 13 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b5",
+  "timeStart": 1609920265739,
+  "timeEnd": 1610803064261,
+  "planName": "20-4",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6002e8d6cd278762a877dd24"
+  },
+  "waterDrunk": 0,
+  "weight": 55,
+  "totalFastHours": "0 giờ 5 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b5",
+  "timeStart": 1610803064293,
+  "timeEnd": 1610803414933,
+  "planName": "20-4",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6002e8e2cd278762a877dd25"
+  },
+  "waterDrunk": 0,
+  "weight": 55,
+  "totalFastHours": "0 giờ 6 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b5",
+  "timeStart": 1610803064293,
+  "timeEnd": 1610803426846,
+  "planName": "20-4",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6002e91ce02f7713241a3273"
+  },
+  "waterDrunk": 0,
+  "weight": 55,
+  "totalFastHours": "0 giờ 0 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b5",
+  "timeStart": 1610803426862,
+  "timeEnd": 1610803484116,
+  "planName": "20-4",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6002e99fe02f7713241a3274"
+  },
+  "waterDrunk": 0,
+  "weight": 55,
+  "totalFastHours": "0 giờ 0 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b5",
+  "timeStart": 1610803567241,
+  "timeEnd": 1610803615379,
+  "planName": "16-8",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6002f078f15a87666c3949ca"
+  },
+  "waterDrunk": 0,
+  "weight": 55,
+  "totalFastHours": "0 giờ 28 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b5",
+  "timeStart": 1610803634065,
+  "timeEnd": 1610805368903,
+  "planName": "20-4",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6006af6178620d8508e08359"
+  },
+  "waterDrunk": 900,
+  "weight": 55,
+  "totalFastHours": "1 giờ 4 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b5",
+  "timeStart": 1611046952685,
+  "timeEnd": 1611050849384,
+  "planName": "16-8",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6007db8482a8bf469c8d6d86"
+  },
+  "waterDrunk": 0,
+  "weight": 55,
+  "totalFastHours": "1 giờ 25 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b5",
+  "timeStart": 1611122529530,
+  "timeEnd": 1611127684003,
+  "planName": "20-4",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6009e7a1237c9a542c354bb9"
+  },
+  "waterDrunk": 0,
+  "weight": 55,
+  "totalFastHours": "37 giờ 4 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b5",
+  "timeStart": 1611128415100,
+  "timeEnd": 1611261857407,
+  "planName": "16-8",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "602fe83de8ecd759f88fff8b"
+  },
+  "waterDrunk": 600,
+  "weight": 55,
+  "totalFastHours": "675 giờ 5 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b5",
+  "timeStart": 1611322039728,
+  "timeEnd": 1613752381596,
+  "planName": "20-4",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "604ce906950de96bac38571a"
+  },
+  "waterDrunk": 0,
+  "weight": 55,
+  "totalFastHours": "527 giờ 59 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b5",
+  "timeStart": 1613752383556,
+  "timeEnd": 1615653125999,
+  "planName": "20-4",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "604ce934950de96bac38571b"
+  },
+  "waterDrunk": 0,
+  "weight": 55,
+  "totalFastHours": "0 giờ 0 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b5",
+  "timeStart": 1615653132554,
+  "timeEnd": 1615653172329,
+  "planName": "20-4",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "604ceaa6950de96bac38571c"
+  },
+  "waterDrunk": 0,
+  "weight": 55,
+  "totalFastHours": "0 giờ 0 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b5",
+  "timeStart": 1615653533598,
+  "timeEnd": 1615653542307,
+  "planName": "20-4",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "604ced38950de96bac38571d"
+  },
+  "waterDrunk": 0,
+  "weight": 55,
+  "totalFastHours": "0 giờ 3 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b5",
+  "timeStart": 1615654002417,
+  "timeEnd": 1615654200296,
+  "planName": "20-4",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "604ced9016bcf50b84fe8683"
+  },
+  "waterDrunk": 0,
+  "weight": 55,
+  "totalFastHours": "0 giờ 0 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b5",
+  "timeStart": 1615654285844,
+  "timeEnd": 1615654288415,
+  "planName": "16-8",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "604cee7b95875c654c5f6a37"
+  },
+  "waterDrunk": 0,
+  "weight": 55,
+  "totalFastHours": "0 giờ 0 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b5",
+  "timeStart": 1615654520838,
+  "timeEnd": 1615654523406,
+  "planName": "16-8",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "604cee8595875c654c5f6a38"
+  },
+  "waterDrunk": 0,
+  "weight": 55,
+  "totalFastHours": "0 giờ 0 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b5",
+  "timeStart": 1615654529507,
+  "timeEnd": 1615654533331,
+  "planName": "16-8",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "604ceecf3248b64d54d2713b"
+  },
+  "waterDrunk": 0,
+  "weight": 55,
+  "totalFastHours": "0 giờ 1 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b5",
+  "timeStart": 1615654536135,
+  "timeEnd": 1615654607679,
+  "planName": "20-4",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "604ceee4b54e1e5a841ec173"
+  },
+  "waterDrunk": 0,
+  "weight": 55,
+  "totalFastHours": "0 giờ 0 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b5",
+  "timeStart": 1615654609181,
+  "timeEnd": 1615654628707,
+  "planName": "16-8",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606d6d39e137a709000f6c27"
+  },
+  "waterDrunk": 1250,
+  "weight": 55,
+  "totalFastHours": "3 giờ 24 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b5",
+  "timeStart": 1617771825971,
+  "timeEnd": 1617784121253,
+  "planName": "20-4",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606d6e03e137a709000f6c28"
+  },
+  "waterDrunk": 1250,
+  "weight": 55,
+  "totalFastHours": "3 giờ 28 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b5",
+  "timeStart": 1617771825971,
+  "timeEnd": 1617784323330,
+  "planName": "20-4",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606d6e0ae137a709000f6c29"
+  },
+  "waterDrunk": 1250,
+  "weight": 55,
+  "totalFastHours": "3 giờ 28 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b5",
+  "timeStart": 1617771825971,
+  "timeEnd": 1617784330413,
+  "planName": "20-4",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606d6e59129d084118511025"
+  },
+  "waterDrunk": 1250,
+  "weight": 55,
+  "totalFastHours": "3 giờ 29 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b5",
+  "timeStart": 1617771825971,
+  "timeEnd": 1617784409477,
+  "planName": "20-4",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606d6ea5129d084118511026"
+  },
+  "waterDrunk": 0,
+  "weight": 55,
+  "totalFastHours": "0 giờ 1 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b5",
+  "timeStart": 1617784413855,
+  "timeEnd": 1617784485552,
+  "planName": "20-4",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606d706d2ece1e72f40fd130"
+  },
+  "waterDrunk": 0,
+  "weight": 55,
+  "totalFastHours": "0 giờ 0 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b5",
+  "timeStart": 1617784933920,
+  "timeEnd": 1617784941118,
+  "planName": "20-4",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "607009da4539056a805a83b6"
+  },
+  "waterDrunk": 1500,
+  "weight": 55,
+  "totalFastHours": "0 giờ 1 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b5",
+  "timeStart": 1617955185223,
+  "timeEnd": 1617955290917,
+  "planName": "16-8",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60753665ce27c5cf70951dfe"
+  },
+  "waterDrunk": 1200,
+  "weight": 55,
+  "totalFastHours": "60 giờ 47 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b5",
+  "timeStart": 1618075495078,
+  "timeEnd": 1618294373108,
+  "planName": "20-4",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "607699e11c3671e85c9a7aab"
+  },
+  "waterDrunk": 0,
+  "weight": 55,
+  "totalFastHours": "0 giờ 2 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b6",
+  "timeStart": 1618385243467,
+  "timeEnd": 1618385377176,
+  "planName": "14-10",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6077313e161f8df69c18226b"
+  },
+  "waterDrunk": 0,
+  "weight": 55,
+  "totalFastHours": "10 giờ 45 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b6",
+  "timeStart": 1618385417532,
+  "timeEnd": 1618424126039,
+  "planName": "14-10",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6077de00c14ecc2bdd27ff70"
+  },
+  "waterDrunk": 0,
+  "weight": 55,
+  "totalFastHours": "12 giờ 16 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b6",
+  "timeStart": 1618424132934,
+  "timeEnd": 1618468352019,
+  "planName": "14-10",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6077f49e19809851f917fd18"
+  },
+  "waterDrunk": 600,
+  "weight": 55,
+  "totalFastHours": "1 giờ 36 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b6",
+  "timeStart": 1618468359180,
+  "timeEnd": 1618474142362,
+  "planName": "16-8",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6077f7f319809851f917fd19"
+  },
+  "waterDrunk": 600,
+  "weight": 55,
+  "totalFastHours": "0 giờ 13 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b6",
+  "timeStart": 1618474177358,
+  "timeEnd": 1618474995652,
+  "planName": "16-8",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "607bfcea2374a116040b8ea3"
+  },
+  "waterDrunk": 0,
+  "weight": 55,
+  "totalFastHours": "73 giờ 9 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b6",
+  "timeStart": 1618475054559,
+  "timeEnd": 1618738410413,
+  "planName": "20-4",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6086639fc7ca70e9a0c64f77"
+  },
+  "waterDrunk": 0,
+  "weight": 55,
+  "totalFastHours": "37 giờ 14 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b6",
+  "timeStart": 1619285994173,
+  "timeEnd": 1619420063073,
+  "planName": "20-4",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6086639fc7ca70e9a0c64f78"
+  },
+  "waterDrunk": 0,
+  "weight": 55,
+  "totalFastHours": "37 giờ 14 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b6",
+  "timeStart": 1619285994173,
+  "timeEnd": 1619420063114,
+  "planName": "20-4",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "608e99277a4da0a1b8901255"
+  },
+  "waterDrunk": 1200,
+  "weight": 55,
+  "totalFastHours": "146 giờ 53 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b6",
+  "timeStart": 1619429252513,
+  "timeEnd": 1619958055221,
+  "planName": "14-10",
+  "takeNote": "hello",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "608e992b7a4da0a1b8901256"
+  },
+  "waterDrunk": 0,
+  "weight": 55,
+  "totalFastHours": "0 giờ 0 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b6",
+  "timeStart": 1619958056792,
+  "timeEnd": 1619958059655,
+  "planName": "14-10",
+  "takeNote": "",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6092667bcfd74b4a14ff73f3"
+  },
+  "waterDrunk": 450,
+  "weight": 55,
+  "totalFastHours": "531 giờ 20 phút ",
+  "userId": "5fc9aff2a81f82c2485e90b5",
+  "timeStart": 1618294389072,
+  "timeEnd": 1620207227942,
+  "planName": "14-10",
+  "takeNote": "",
+  "__v": 0
+}]

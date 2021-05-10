@@ -18,7 +18,9 @@ router.put("/choose", authController.checkLoggedIn, async (req, res) => {
       planId: plan._id,
       chooseAt: new Date(),
       isEndFasting: false,
+      planType: PlanModel.planType.original,
     };
+    req.user.isReminder = 0;
     let data = {
       fastHours: plan.fastHours,
       eatHours: plan.eatHours,
@@ -100,6 +102,7 @@ router.post("/addTimeLine", authController.checkLoggedIn, async (req, res) => {
       planName: req.user.plan.name,
       takeNote: req.body.takeNote,
       waterDrunk: req.body.waterDrunk,
+      weight: req.body.currentWeight,
     };
 
     let newItem = await TimeLineModel.createNew(data);
@@ -160,12 +163,23 @@ router.put(
       name: "custom",
       chooseAt: timeToStart,
       isEndFasting: false,
+      planType: PlanModel.planType.custom,
     };
     if (req.body.timelimit > 0) {
       req.user.plan.chooseCustomPlan = req.body.timelimit;
     }
     //  tính khoảng cách giữa hiện tại với thời gian user chọn
     // nếu thời gian chọn là thời điểm tương lai thì flag = true và ngược lại
+
+    let updateUser = await UserModel.updateUser(req.user._id, req.user);
+    return res.status(200).send({ success: true });
+  }
+);
+router.put(
+  "/chooseReminder",
+  authController.checkLoggedIn,
+  async (req, res) => {
+    req.user.isReminder = req.body.timeToStart;
 
     let updateUser = await UserModel.updateUser(req.user._id, req.user);
     return res.status(200).send({ success: true });

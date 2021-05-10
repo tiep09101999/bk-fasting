@@ -7,10 +7,11 @@ const authController = require("../controller/authController");
 const homeController = require("../controller/homeController");
 const planController = require("../controller/planController");
 const webpushController = require("../controller/webpushController");
-const PlanModel = require("../model/plan");
-const UserModel = require("../model/user");
+const foodController = require("../controller/foodController");
+
 const TimeLineModel = require("../model/timeline");
 const formatDate = require("../helper/formatDate");
+const authValid = require("../helper/authValidation");
 
 // init login with fb
 initPassportFb();
@@ -22,10 +23,24 @@ router
   //   res.render("example", { title: "ejs" });
   // })
   .get("/", authController.checkLoggedIn, homeController.getHome)
+  .post(
+    "/register",
+    authController.checkLoggedOut,
+    authValid.register,
+    authController.postRegister
+  )
+  .get(
+    "/verify/:token",
+    authController.checkLoggedOut,
+    authController.verifyAccount
+  )
   .get("/countup", authController.checkLoggedIn, homeController.getCountUp)
 
   .get("/register", authController.checkLoggedOut, (req, res) => {
-    res.render("register");
+    res.render("register", {
+      errors: req.flash("errors"),
+      success: req.flash("success")
+    });
   })
   .get("/learn", authController.checkLoggedIn, (req, res) => {
     res.render("learn", { user: req.user });
@@ -50,7 +65,10 @@ router
     });
   })
   .get("/login", authController.checkLoggedOut, (req, res) => {
-    res.render("login");
+    res.render("login", {
+      errors: req.flash("errors"),
+      success: req.flash("success")
+    });
   })
   .post(
     "/login-local",
@@ -79,6 +97,11 @@ router
     "/subscribe",
     authController.checkLoggedIn,
     webpushController.handleSubcription
-  );
+  )
+  .get("/food-form", authController.checkLoggedIn, foodController.getFoodForm)
+  .post("/category/food", authController.checkLoggedIn, foodController.getFoodsByCategory)
+  .post("/food-form", authController.checkLoggedIn, foodController.addFoodToForm)
+  .delete("/food-form/:id", authController.checkLoggedIn, foodController.deleteFoodToForm)
+  .put("/user/calo", authController.checkLoggedIn, foodController.updateCaloTargetUser);
 
 module.exports = router;

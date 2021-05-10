@@ -1,4 +1,4 @@
-let staticCacheName = "static-cache-v83";
+let staticCacheName = "static-cache-v86";
 let dynamicCacheName = "dynamic-cache-v1";
 
 let assets = [
@@ -22,6 +22,7 @@ let assets = [
   "/register.ejs",
   "/example.html",
   "/offline.ejs",
+  "/food_form.ejs",
 
   //các file js
   // "/js/calculateTime.js",
@@ -41,6 +42,7 @@ let assets = [
   "/js/modal_learn.js",
   "/js/plan.js",
   "/js/swiper-bundle.js",
+  "/js/modal_food.js",
   "/css/main.css",
   "/css/main.min.css",
   "/css/main.css.map",

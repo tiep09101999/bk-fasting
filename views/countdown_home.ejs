@@ -1,331 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fasting Tracker</title>
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/swiper-bundle.css" />
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
-    <link rel="stylesheet" href="component/AlertifyJS/build/css/alertify.css" />
-  
-    <script src="/socket.io/socket.io.js"></script>
-    <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#2196f3">
-    <!-- ios Support -->
-    <link rel="apple-touch-icon" href="assets/images/fasting-96x96.png" />
-    <meta name="apple-mobile-web-app-statuc-bar" content="#aa7700" />
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137426789-2"></script>-->
-    <script>
-      window.dataLayer = window.dataLayer || [];
 
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fasting Tracker</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/swiper-bundle.css" />
 
-      gtag("config", "UA-137426789-2");
-    </script>
-  </head>
-  <body>
-    <div class="wrapper">
-      <%- include('component/header'); %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+  <link rel="stylesheet" href="component/AlertifyJS/build/css/alertify.css" />
+
+  <script src="/socket.io/socket.io.js"></script>
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#2196f3">
+  <!-- ios Support -->
+  <link rel="apple-touch-icon" href="assets/images/fasting-96x96.png" />
+  <meta name="apple-mobile-web-app-statuc-bar" content="#aa7700" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137426789-2"></script>-->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "UA-137426789-2");
+  </script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <%- include('component/header'); %>
 
       <!--Count Down-->
       <section class="countDown">
-        <% if(user.plan.isEndFasting) { %> 
+        <% if(user.plan.isEndFasting) { %>
           <div class="countDown__title">Hãy sẵn sàng để bắt đầu nhịn ăn</div>
-        <% } else { %>
-          <div class="countDown__title">Bạn đang nhịn ăn!</div>
-        <% } %>
-       
-        <div class="countDown__level">
-          <!-- <div class="countDown__image">
-            <img src="assets/icon-leaf.svg" alt="" />
-          </div>
-          <b>Lv.1</b>
-          <div class="countDown__levelTitle">Blood Suger Raises</div>
-          <div class="countDown__iconArrow"></div> -->
-        </div>
-        <div id="app"></div>
-        <% if(!user.plan.isEndFasting) { %> 
-          <div class="countDown__time">
-            <div class="countDown__start">
-              <img src="assets/icon-green.svg" alt="" />Bất đầu
-            </div>
-            <div class="countDown__timeNumber" id="timeStart">
-              <%= new Date(user.plan.chooseAt).toLocaleString()%>
-              <div class="countDown__icon">
+          <% } else { %>
+            <div class="countDown__title">Bạn đang nhịn ăn!</div>
+            <% } %>
+
+
+              <div class="countDown__level" ">
+          <!-- <div class=" countDown__image">
+                <img src="assets/icon-leaf.svg" alt="" />
+              </div>
+              <b>Lv.1</b>
+              <div class="countDown__levelTitle">Blood Suger Raises</div>
+              <div class="countDown__iconArrow"></div> -->
+  </div>
+  <div id="app"></div>
+  <% if(!user.plan.isEndFasting) { %>
+    <div class="countDown__time">
+      <div class="countDown__start">
+        <img src="assets/icon-green.svg" alt="" />Bất đầu
+      </div>
+      <div class="countDown__timeNumber" id="timeStart">
+        <%= new Date(user.plan.chooseAt).toLocaleString()%>
+          <!-- <div class="countDown__icon">
                 <img src="assets/icon-editcolor.svg" alt="" />
-              </div>
-            </div>
-          </div>
-          <div class="countDown__time">
-            <div class="countDown__end">
-              <img src="assets/icon-red.svg" alt="" />Kết thúc dự kiến
-            </div>
-            <div class="countDown__timeNumber" id="timeEnd">
-              <% if(flag) {%>
-              <%= new Date(newDate).toLocaleString()%>
-              <% } else { %>
-                Ấn kết thúc khi bạn muốn ăn
-              <% } %>
-            </div>
-          </div>  
-          <% } %>
-        <div class="countDown__custom">
-          Custom<img src="assets/icon-edit.svg" alt="" />
-        </div>
-    
-        <% if(user.plan.isEndFasting && user.plan.name !== "custom") { %>
-          <button class="cta white btnEndFasting" id="btnStartPlanAgain" data-uid="<%=user.plan.planId %>">Tiếp tục kế hoạch <%=user.plan.name%></button>
-          <button class="cta alt" id="chooseDifPlan">Kế hoạch khác</button>
-        <% } else if(!user.plan.isEndFasting && user.plan.name !== "custom" ) { %>
-          <button class="cta white btnEndFasting" id="btnEndFasting">Kết thúc</button>
-          <button class="cta alt">Nhắc tôi sau</button>
-        <% } else if(user.plan.isEndFasting && user.plan.name === "custom") { %>
-          <button class="cta white btnEndFasting" id="btnStartPlanAgainCustom" >Tiếp tục kế hoạch <%=user.plan.name%></button>
-          <button class="cta alt" id="chooseDifPlan">Kế hoạch khác</button>
-        <% } else if(!user.plan.isEndFasting && user.plan.name === "custom" ) {%>
-        <button class="cta white btnEndFasting" id="btnEndFastingCustom" data-time="<%= user.plan.chooseAt%>">Kết thúc</button>
-        <button class="cta alt">Nhắc tôi sau</button>
-        <% } %>
-        
-      </section>
-      <!--end Count Down-->
-
-      <section class="dualBlock">
-        <div class="dualBlock__wrapper">
-          <div class="dualBlock__block one">
-            <h2 class="dualBlock__title">Uống nước để giảm cân.</h2>
-            <p class="dualBlock__desc">
-              Bạn có biết không? Tăng cường vận động có thể giúp giảm cân bằng
-              cách: - Tăng cường đốt cháy chất béo. - Khởi động quá trình trao
-              đổi chất...
-            </p>
-          </div>
-          <div class="dualBlock__block">
-            <h2 class="dualBlock__title">Sau khi nhịn ăn</h2>
-            <ul>
-              <li>Tránh ăn quá nhiều</li>
-              <li>Ăn thực phẩm chứa nhiều protein và rau</li>
-              <li>Hãy nghỉ ngơi nếu bạn cảm thấy không khỏe.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="symptom">
-        <button class="cta white">
-          Các triệu chứng khi nhịn ăn
-          <div class="symptom__icon"></div>
-        </button>
-      </section>
-
-      <div class="modal dualBlock">
-        <div class="modal__container">
-          <i class="modal__icon">
-            <svg
-              version="1.1"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-            >
-              <g fill="">
-                <path
-                  opacity="0"
-                  d="M0,0h24v24h-24Z"
-                  transform="matrix(-1,1.22465e-16,-1.22465e-16,-1,24,24)"
-                ></path>
-                <path
-                  d="M13.41,12l4.3,-4.29l6.9121e-08,-6.91211e-08c0.392122,-0.392122 0.392122,-1.02788 -1.38242e-07,-1.42c-0.392122,-0.392122 -1.02788,-0.392122 -1.42,1.38242e-07l-4.29,4.3l-4.29,-4.3l6.9121e-08,6.91211e-08c-0.392122,-0.392122 -1.02788,-0.392122 -1.42,-1.38242e-07c-0.392122,0.392122 -0.392122,1.02788 -1.38242e-07,1.42c0,0 0,1.77636e-15 0,1.77636e-15l4.3,4.29l-4.3,4.29l2.29995e-08,-2.28117e-08c-0.392122,0.38892 -0.394718,1.02208 -0.00579837,1.4142c0.00192484,0.00194069 0.00385763,0.00387348 0.00579832,0.00579832l-3.12092e-08,-3.14662e-08c0.38892,0.392122 1.02208,0.394718 1.4142,0.00579839c0.00194069,-0.00192484 0.00387348,-0.00385763 0.00579832,-0.00579832l4.29,-4.3l4.29,4.3l-3.12092e-08,-3.14662e-08c0.38892,0.392122 1.02208,0.394718 1.4142,0.00579839c0.00194069,-0.00192484 0.00387348,-0.00385763 0.00579832,-0.00579832l4.18882e-08,-4.15461e-08c0.392122,-0.38892 0.394718,-1.02208 0.00579824,-1.4142c-0.00192484,-0.00194069 -0.00385763,-0.00387348 -0.00579832,-0.00579832Z"
-                ></path>
-              </g>
-            </svg>
-          </i>
-          <div class="modal__content">
-            <div class="modal__subTitle">Far far away</div>
-            <h2 class="modal__title drink">Uống nước để giảm cân.</h2>
-            <p class="modal__desc">
-              Bạn có biết không? Tăng cường vận động có thể giúp giảm cân bằng
-              cách: - Tăng cường đốt cháy chất béo. - Khởi động quá trình trao
-              đổi chất...there live the blind texts. Separated they live in
-              Bookmarksgrove right at the coast of the Semantics, a large
-              language ocean.
-            </p>
-            <div class="modal__ctaContainer">
-              <button class="cta drink">Uống nước</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal symptom">
-        <div class="modal__container">
-          <i class="modal__icon">
-            <svg
-              version="1.1"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-            >
-              <g fill="">
-                <path
-                  opacity="0"
-                  d="M0,0h24v24h-24Z"
-                  transform="matrix(-1,1.22465e-16,-1.22465e-16,-1,24,24)"
-                ></path>
-                <path
-                  d="M13.41,12l4.3,-4.29l6.9121e-08,-6.91211e-08c0.392122,-0.392122 0.392122,-1.02788 -1.38242e-07,-1.42c-0.392122,-0.392122 -1.02788,-0.392122 -1.42,1.38242e-07l-4.29,4.3l-4.29,-4.3l6.9121e-08,6.91211e-08c-0.392122,-0.392122 -1.02788,-0.392122 -1.42,-1.38242e-07c-0.392122,0.392122 -0.392122,1.02788 -1.38242e-07,1.42c0,0 0,1.77636e-15 0,1.77636e-15l4.3,4.29l-4.3,4.29l2.29995e-08,-2.28117e-08c-0.392122,0.38892 -0.394718,1.02208 -0.00579837,1.4142c0.00192484,0.00194069 0.00385763,0.00387348 0.00579832,0.00579832l-3.12092e-08,-3.14662e-08c0.38892,0.392122 1.02208,0.394718 1.4142,0.00579839c0.00194069,-0.00192484 0.00387348,-0.00385763 0.00579832,-0.00579832l4.29,-4.3l4.29,4.3l-3.12092e-08,-3.14662e-08c0.38892,0.392122 1.02208,0.394718 1.4142,0.00579839c0.00194069,-0.00192484 0.00387348,-0.00385763 0.00579832,-0.00579832l4.18882e-08,-4.15461e-08c0.392122,-0.38892 0.394718,-1.02208 0.00579824,-1.4142c-0.00192484,-0.00194069 -0.00385763,-0.00387348 -0.00579832,-0.00579832Z"
-                ></path>
-              </g>
-            </svg>
-          </i>
-          <div class="modal__content">
-            <div class="modal__subTitle">Far far away</div>
-            <h2 class="modal__title">Các triệu chứng khi nhịn ăn</h2>
-            <p class="modal__desc">
-              Trong suốt quá trình nhịn ăn, bạn sẽ cảm thấy mệt một chút, thấy
-              đói và có thể hơi nóng tính, nhưng bạn không nên cảm thấy nản chí.
-              Hãy để ý tới cơ thể của bạn, đặc biệt đối với những người mới tham
-              gia. Nếu bạn cảm thấy không thoải mái và thấy kế hoạch quá khó để
-              bạn theo kịp, hãy thử giảm mức độ kế hoạch của mình xuống. Nếu sự
-              mệt mỏi cản trở bạn hoàn thành những mục tiêu, hoặc bạn không
-              thoải mái và thấy trong người hơi ốm, hãy dừng nhịn ăn ngay lập
-              tức và hỏi ý kiến của bác sĩ
-            </p>
-          </div>
-        </div>
-      </div>
-      </div>
-      <!-- uống nước -->
-      <div class="modal drink">
-        <div class="modal__container drink">
-          <i class="modal__icon drink">
-            <svg
-              version="1.1"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-            >
-              <g fill="">
-                <path
-                  opacity="0"
-                  d="M0,0h24v24h-24Z"
-                  transform="matrix(-1,1.22465e-16,-1.22465e-16,-1,24,24)"
-                ></path>
-                <path
-                  d="M13.41,12l4.3,-4.29l6.9121e-08,-6.91211e-08c0.392122,-0.392122 0.392122,-1.02788 -1.38242e-07,-1.42c-0.392122,-0.392122 -1.02788,-0.392122 -1.42,1.38242e-07l-4.29,4.3l-4.29,-4.3l6.9121e-08,6.91211e-08c-0.392122,-0.392122 -1.02788,-0.392122 -1.42,-1.38242e-07c-0.392122,0.392122 -0.392122,1.02788 -1.38242e-07,1.42c0,0 0,1.77636e-15 0,1.77636e-15l4.3,4.29l-4.3,4.29l2.29995e-08,-2.28117e-08c-0.392122,0.38892 -0.394718,1.02208 -0.00579837,1.4142c0.00192484,0.00194069 0.00385763,0.00387348 0.00579832,0.00579832l-3.12092e-08,-3.14662e-08c0.38892,0.392122 1.02208,0.394718 1.4142,0.00579839c0.00194069,-0.00192484 0.00387348,-0.00385763 0.00579832,-0.00579832l4.29,-4.3l4.29,4.3l-3.12092e-08,-3.14662e-08c0.38892,0.392122 1.02208,0.394718 1.4142,0.00579839c0.00194069,-0.00192484 0.00387348,-0.00385763 0.00579832,-0.00579832l4.18882e-08,-4.15461e-08c0.392122,-0.38892 0.394718,-1.02208 0.00579824,-1.4142c-0.00192484,-0.00194069 -0.00385763,-0.00387348 -0.00579832,-0.00579832Z"
-                ></path>
-              </g>
-            </svg>
-          </i>
-          <div class="modal__content">
-            <div class="modal__drink">
-              <div class="modal__drinkTop">
-                <h2 class="modal__drinkTitle" id="modal__drinkTitle"><span><%= user.plan.water.waterDrunk%></span> ml</h2>
-                <div class="modal__drinkContentDesc">
-                  <p class="modal__drinkDesc">Daily goal: 2000 ml</p>
-                  <div class="modal__drinkIconEdit">
-                    <img src="assets/icon-editcolor.svg" alt="" />
-                  </div>
-                </div>
-              </div>
-              <div class="modal__drinkBottom">
-                <div class="modal__drinkPlus" id="addDrink">
-                  <img src="assets/icon-plus-w.svg" alt=""  />
-                  <span><%= user.plan.water.waterAmount%></span> ml
-                </div>
-
-                <div class="modal__drinkMinusWrapper">
-                  <div class="modal__drinkMinus" id="subDrink">
-                    <img src="assets/icon-minus-w.svg" alt="" />
-                  </div>
-                  <div class="modal__drinkSwap">
-                    <img src="assets/icon-swap.svg" alt="" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Modal Swap -->
-      <div class="modal swap">
-        <div class="modal__container swap">
-            <i class="modal__icon swap">
-                <svg version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <g fill="">
-                        <path opacity="0" d="M0,0h24v24h-24Z" transform="matrix(-1,1.22465e-16,-1.22465e-16,-1,24,24)">
-                        </path>
-                        <path
-                            d="M13.41,12l4.3,-4.29l6.9121e-08,-6.91211e-08c0.392122,-0.392122 0.392122,-1.02788 -1.38242e-07,-1.42c-0.392122,-0.392122 -1.02788,-0.392122 -1.42,1.38242e-07l-4.29,4.3l-4.29,-4.3l6.9121e-08,6.91211e-08c-0.392122,-0.392122 -1.02788,-0.392122 -1.42,-1.38242e-07c-0.392122,0.392122 -0.392122,1.02788 -1.38242e-07,1.42c0,0 0,1.77636e-15 0,1.77636e-15l4.3,4.29l-4.3,4.29l2.29995e-08,-2.28117e-08c-0.392122,0.38892 -0.394718,1.02208 -0.00579837,1.4142c0.00192484,0.00194069 0.00385763,0.00387348 0.00579832,0.00579832l-3.12092e-08,-3.14662e-08c0.38892,0.392122 1.02208,0.394718 1.4142,0.00579839c0.00194069,-0.00192484 0.00387348,-0.00385763 0.00579832,-0.00579832l4.29,-4.3l4.29,4.3l-3.12092e-08,-3.14662e-08c0.38892,0.392122 1.02208,0.394718 1.4142,0.00579839c0.00194069,-0.00192484 0.00387348,-0.00385763 0.00579832,-0.00579832l4.18882e-08,-4.15461e-08c0.392122,-0.38892 0.394718,-1.02208 0.00579824,-1.4142c-0.00192484,-0.00194069 -0.00385763,-0.00387348 -0.00579832,-0.00579832Z">
-                        </path>
-                    </g>
-                </svg>
-            </i>
-            <div class="modal__content">
-                <h2 class="modal__cupTitle">Công suất cốc</h2>
-                <div class="modal__cups" id="modal_cups">
-                    <div class="modal__cup" id="modal_cup" data-drink="50" >50 ml</div>
-                    <div class="modal__cup" id="modal_cup" data-drink="200" >200 ml</div>
-                    <div class="modal__cup" id="modal_cup" data-drink="300" >300 ml</div>
-                    <div class="modal__cup" id="modal_cup" data-drink="500" >500 ml</div>
-                    <div class="modal__cup"><img src="assets/icon-plus-w.svg" alt=""></div>
-                </div>
-            </div>
-        </div>
-      </div>
-    <!-- end Modal Swap -->
-    
-      <!-- import modal End Fasting -->
-      <%- include('component/modalEndFasting');%>
-    <div class="modal slider2">
-      <div class="modal__container">
-        <div class="modal__icon slider2"></div>
-        <section class="contentMedia white about2 level">
-          <div class="contentMedia__wrapper">
-            <div class="contentMedia__sliderContainer">
-              <div class="contentMedia__slider2 swiper-container anime">
-                <div class="swiper-wrapper"></div>
-              </div>
-
-              <div class="swiper-button-prev two"></div>
-              <div class="swiper-button-next two"></div>
-              <div class="swiper-pagination two"></div>
-            </div>
-          </div>
-        </section>
+              </div> -->
       </div>
     </div>
-  </div>
-   <!-- import custom plan modal -->
-   <%- include('component/modalCustomPlan');%>
-  <!-- import edit account modal -->
-  <%- include('component/modalEditAccount');%>
-    <!-- // import footer For Mobile -->
-    <%- include('component/footerMobile');%>
-    <script src="js/main.js"></script>
-    <!-- import thu vien  -->
+    <div class="countDown__time">
+      <div class="countDown__end">
+        <img src="assets/icon-red.svg" alt="" />Kết thúc dự kiến
+      </div>
+      <div class="countDown__timeNumber" id="timeEnd">
+        <% if(flag) {%>
+          <%= new Date(newDate).toLocaleString()%>
+            <% } else { %>
+              Ấn kết thúc khi bạn muốn ăn
+              <% } %>
+      </div>
+    </div>
+    <% } %>
 
-    <script src="component/jquery/dist/jquery.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="component/AlertifyJS/build/alertify.js"></script>
-    <!-- My Js -->
-    <script src="js//pwa/pw.js"></script>
-    <script src="js/logout.js"></script>
-    <script src="js/endFast.js"></script>
-    <script src="js/drinkWater.js"></script>
-    <script src="js/calculateTime.js"></script>
-    <script src="js/swiper-bundle.js"></script>
-    
-    <script src="js/modal_count.js"></script>
-    <script src="js/editAccount.js"></script>
-    <script src="js/updateUser.js"></script>
-    <script src="js/choose.js"></script>
-    <script src="js/customPlan.js"></script>
-  </body>
+
+      <% if(user.plan.isEndFasting && user.plan.name !=="custom" ) { if(user.isReminder> 0) { %>
+        <div class="countDown__custom" id="remind_me_text">
+          Lịch hẹn: <%= new Date(user.isReminder).toLocaleString()%><img src="assets/icon-edit.svg" alt="Chọn thời gian"
+              id="reminder_me" />
+        </div>
+        <% } else { %>
+          <div class="countDown__custom" id="remind_me_text">
+            Nhắc tôi sau<img src="assets/icon-edit.svg" alt="Chọn thời gian" id="reminder_me" />
+          </div>
+          <% } %>
+            <button class="cta white btnEndFasting" id="btnStartPlanAgain" data-uid="<%=user.plan.planId %>">Tiếp tục kế
+              hoạch <%=user.plan.name%></button>
+            <button class="cta alt" id="chooseDifPlan">Kế hoạch khác</button>
+            <% } else if(!user.plan.isEndFasting && user.plan.name !=="custom" ) { %>
+              <button class="cta white btnEndFasting" id="btnEndFasting">Kết thúc</button>
+              <!-- <button class="cta alt">Nhắc tôi sau</button> -->
+              <% } else if(user.plan.isEndFasting && user.plan.name==="custom" ) { if(user.isReminder> 0) { %>
+                <div class="countDown__custom" id="remind_me_text">
+                  Lịch hẹn <%= new Date(user.isReminder).toLocaleString()%><img src="assets/icon-edit.svg"
+                      alt="Chọn thời gian" id="reminder_me" />
+                </div>
+                <% } else { %>
+                  <div class="countDown__custom" id="remind_me_text">
+                    Nhắc tôi sau<img src="assets/icon-edit.svg" alt="Chọn thời gian" id="reminder_me" />
+                  </div>
+                  <% } %>
+                    <button class="cta white btnEndFasting" id="btnStartPlanAgainCustom">Tiếp tục kế hoạch
+                      <%=user.plan.name%>
+                    </button>
+                    <button class="cta alt" id="chooseDifPlan">Kế hoạch khác</button>
+                    <% } else if(!user.plan.isEndFasting && user.plan.name==="custom" ) {%>
+                      <button class="cta white btnEndFasting" id="btnEndFastingCustom"
+                        data-time="<%= user.plan.chooseAt%>">Kết thúc</button>
+                      <!-- // <button class="cta alt">Nhắc tôi sau</button> -->
+                      <% } %>
+
+                        </section>
+                        <!--end Count Down-->
+
+                        <section class="dualBlock">
+                          <div class="dualBlock__wrapper">
+                            <div class="dualBlock__block one">
+                              <h2 class="dualBlock__title">Uống nước để giảm cân.</h2>
+                              <p class="dualBlock__desc">
+                                Bạn có biết không? Tăng cường vận động có thể giúp giảm cân bằng
+                                cách: - Tăng cường đốt cháy chất béo. - Khởi động quá trình trao
+                                đổi chất...
+                              </p>
+                            </div>
+                            <div class="dualBlock__block">
+                              <h2 class="dualBlock__title">Sau khi nhịn ăn</h2>
+                              <ul>
+                                <li>Tránh ăn quá nhiều</li>
+                                <li>Ăn thực phẩm chứa nhiều protein và rau</li>
+                                <li>Hãy nghỉ ngơi nếu bạn cảm thấy không khỏe.</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </section>
+
+                        <section class="symptom">
+                          <button class="cta white">
+                            Các triệu chứng khi nhịn ăn
+                            <div class="symptom__icon"></div>
+                          </button>
+                        </section>
+
+                        <div class="modal dualBlock">
+                          <div class="modal__container">
+                            <i class="modal__icon">
+                              <svg version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <g fill="">
+                                  <path opacity="0" d="M0,0h24v24h-24Z"
+                                    transform="matrix(-1,1.22465e-16,-1.22465e-16,-1,24,24)"></path>
+                                  <path
+                                    d="M13.41,12l4.3,-4.29l6.9121e-08,-6.91211e-08c0.392122,-0.392122 0.392122,-1.02788 -1.38242e-07,-1.42c-0.392122,-0.392122 -1.02788,-0.392122 -1.42,1.38242e-07l-4.29,4.3l-4.29,-4.3l6.9121e-08,6.91211e-08c-0.392122,-0.392122 -1.02788,-0.392122 -1.42,-1.38242e-07c-0.392122,0.392122 -0.392122,1.02788 -1.38242e-07,1.42c0,0 0,1.77636e-15 0,1.77636e-15l4.3,4.29l-4.3,4.29l2.29995e-08,-2.28117e-08c-0.392122,0.38892 -0.394718,1.02208 -0.00579837,1.4142c0.00192484,0.00194069 0.00385763,0.00387348 0.00579832,0.00579832l-3.12092e-08,-3.14662e-08c0.38892,0.392122 1.02208,0.394718 1.4142,0.00579839c0.00194069,-0.00192484 0.00387348,-0.00385763 0.00579832,-0.00579832l4.29,-4.3l4.29,4.3l-3.12092e-08,-3.14662e-08c0.38892,0.392122 1.02208,0.394718 1.4142,0.00579839c0.00194069,-0.00192484 0.00387348,-0.00385763 0.00579832,-0.00579832l4.18882e-08,-4.15461e-08c0.392122,-0.38892 0.394718,-1.02208 0.00579824,-1.4142c-0.00192484,-0.00194069 -0.00385763,-0.00387348 -0.00579832,-0.00579832Z">
+                                  </path>
+                                </g>
+                              </svg>
+                            </i>
+                            <div class="modal__content">
+                              <div class="modal__subTitle">Far far away</div>
+                              <h2 class="modal__title drink">Uống nước để giảm cân.</h2>
+                              <p class="modal__desc">
+                                Bạn có biết không? Tăng cường vận động có thể giúp giảm cân bằng
+                                cách: - Tăng cường đốt cháy chất béo. - Khởi động quá trình trao
+                                đổi chất...there live the blind texts. Separated they live in
+                                Bookmarksgrove right at the coast of the Semantics, a large
+                                language ocean.
+                              </p>
+                              <div class="modal__ctaContainer">
+                                <button class="cta drink">Uống nước</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="modal symptom">
+                          <div class="modal__container">
+                            <i class="modal__icon">
+                              <svg version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <g fill="">
+                                  <path opacity="0" d="M0,0h24v24h-24Z"
+                                    transform="matrix(-1,1.22465e-16,-1.22465e-16,-1,24,24)"></path>
+                                  <path
+                                    d="M13.41,12l4.3,-4.29l6.9121e-08,-6.91211e-08c0.392122,-0.392122 0.392122,-1.02788 -1.38242e-07,-1.42c-0.392122,-0.392122 -1.02788,-0.392122 -1.42,1.38242e-07l-4.29,4.3l-4.29,-4.3l6.9121e-08,6.91211e-08c-0.392122,-0.392122 -1.02788,-0.392122 -1.42,-1.38242e-07c-0.392122,0.392122 -0.392122,1.02788 -1.38242e-07,1.42c0,0 0,1.77636e-15 0,1.77636e-15l4.3,4.29l-4.3,4.29l2.29995e-08,-2.28117e-08c-0.392122,0.38892 -0.394718,1.02208 -0.00579837,1.4142c0.00192484,0.00194069 0.00385763,0.00387348 0.00579832,0.00579832l-3.12092e-08,-3.14662e-08c0.38892,0.392122 1.02208,0.394718 1.4142,0.00579839c0.00194069,-0.00192484 0.00387348,-0.00385763 0.00579832,-0.00579832l4.29,-4.3l4.29,4.3l-3.12092e-08,-3.14662e-08c0.38892,0.392122 1.02208,0.394718 1.4142,0.00579839c0.00194069,-0.00192484 0.00387348,-0.00385763 0.00579832,-0.00579832l4.18882e-08,-4.15461e-08c0.392122,-0.38892 0.394718,-1.02208 0.00579824,-1.4142c-0.00192484,-0.00194069 -0.00385763,-0.00387348 -0.00579832,-0.00579832Z">
+                                  </path>
+                                </g>
+                              </svg>
+                            </i>
+                            <div class="modal__content">
+                              <div class="modal__subTitle">Far far away</div>
+                              <h2 class="modal__title">Các triệu chứng khi nhịn ăn</h2>
+                              <p class="modal__desc">
+                                Trong suốt quá trình nhịn ăn, bạn sẽ cảm thấy mệt một chút, thấy
+                                đói và có thể hơi nóng tính, nhưng bạn không nên cảm thấy nản chí.
+                                Hãy để ý tới cơ thể của bạn, đặc biệt đối với những người mới tham
+                                gia. Nếu bạn cảm thấy không thoải mái và thấy kế hoạch quá khó để
+                                bạn theo kịp, hãy thử giảm mức độ kế hoạch của mình xuống. Nếu sự
+                                mệt mỏi cản trở bạn hoàn thành những mục tiêu, hoặc bạn không
+                                thoải mái và thấy trong người hơi ốm, hãy dừng nhịn ăn ngay lập
+                                tức và hỏi ý kiến của bác sĩ
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <!-- uống nước -->
+                        <div class="modal drink">
+                          <div class="modal__container drink">
+                            <i class="modal__icon drink">
+                              <svg version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <g fill="">
+                                  <path opacity="0" d="M0,0h24v24h-24Z"
+                                    transform="matrix(-1,1.22465e-16,-1.22465e-16,-1,24,24)"></path>
+                                  <path
+                                    d="M13.41,12l4.3,-4.29l6.9121e-08,-6.91211e-08c0.392122,-0.392122 0.392122,-1.02788 -1.38242e-07,-1.42c-0.392122,-0.392122 -1.02788,-0.392122 -1.42,1.38242e-07l-4.29,4.3l-4.29,-4.3l6.9121e-08,6.91211e-08c-0.392122,-0.392122 -1.02788,-0.392122 -1.42,-1.38242e-07c-0.392122,0.392122 -0.392122,1.02788 -1.38242e-07,1.42c0,0 0,1.77636e-15 0,1.77636e-15l4.3,4.29l-4.3,4.29l2.29995e-08,-2.28117e-08c-0.392122,0.38892 -0.394718,1.02208 -0.00579837,1.4142c0.00192484,0.00194069 0.00385763,0.00387348 0.00579832,0.00579832l-3.12092e-08,-3.14662e-08c0.38892,0.392122 1.02208,0.394718 1.4142,0.00579839c0.00194069,-0.00192484 0.00387348,-0.00385763 0.00579832,-0.00579832l4.29,-4.3l4.29,4.3l-3.12092e-08,-3.14662e-08c0.38892,0.392122 1.02208,0.394718 1.4142,0.00579839c0.00194069,-0.00192484 0.00387348,-0.00385763 0.00579832,-0.00579832l4.18882e-08,-4.15461e-08c0.392122,-0.38892 0.394718,-1.02208 0.00579824,-1.4142c-0.00192484,-0.00194069 -0.00385763,-0.00387348 -0.00579832,-0.00579832Z">
+                                  </path>
+                                </g>
+                              </svg>
+                            </i>
+                            <div class="modal__content">
+                              <div class="modal__drink">
+                                <div class="modal__drinkTop">
+                                  <h2 class="modal__drinkTitle" id="modal__drinkTitle"><span>
+                                      <%= user.plan.water.waterDrunk%>
+                                    </span> ml</h2>
+                                  <div class="modal__drinkContentDesc">
+                                    <p class="modal__drinkDesc">Daily goal: 2000 ml</p>
+                                    <div class="modal__drinkIconEdit">
+                                      <img src="assets/icon-editcolor.svg" alt="" />
+                                    </div>
+                                  </div>
+                                  <form action="">
+                                    <div class="modal__drinkInput"><input type="text" placeholder="Nhập mực nước">
+                                      <div class="drinkBtn">Lưu</div>
+                                    </div>
+                                  </form>
+                                </div>
+                                <div class="modal__drinkBottom">
+                                  <div class="modal__drinkPlus" id="addDrink">
+                                    <img src="assets/icon-plus-w.svg" alt="" />
+                                    <span>
+                                      <%= user.plan.water.waterAmount%>
+                                    </span> ml
+                                  </div>
+
+                                  <div class="modal__drinkMinusWrapper">
+                                    <div class="modal__drinkMinus" id="subDrink">
+                                      <img src="assets/icon-minus-w.svg" alt="" />
+                                    </div>
+                                    <div class="modal__drinkSwap">
+                                      <img src="assets/icon-swap.svg" alt="" />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Modal Swap -->
+                        <div class="modal swap">
+                          <div class="modal__container swap">
+                            <i class="modal__icon swap">
+                              <svg version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <g fill="">
+                                  <path opacity="0" d="M0,0h24v24h-24Z"
+                                    transform="matrix(-1,1.22465e-16,-1.22465e-16,-1,24,24)">
+                                  </path>
+                                  <path
+                                    d="M13.41,12l4.3,-4.29l6.9121e-08,-6.91211e-08c0.392122,-0.392122 0.392122,-1.02788 -1.38242e-07,-1.42c-0.392122,-0.392122 -1.02788,-0.392122 -1.42,1.38242e-07l-4.29,4.3l-4.29,-4.3l6.9121e-08,6.91211e-08c-0.392122,-0.392122 -1.02788,-0.392122 -1.42,-1.38242e-07c-0.392122,0.392122 -0.392122,1.02788 -1.38242e-07,1.42c0,0 0,1.77636e-15 0,1.77636e-15l4.3,4.29l-4.3,4.29l2.29995e-08,-2.28117e-08c-0.392122,0.38892 -0.394718,1.02208 -0.00579837,1.4142c0.00192484,0.00194069 0.00385763,0.00387348 0.00579832,0.00579832l-3.12092e-08,-3.14662e-08c0.38892,0.392122 1.02208,0.394718 1.4142,0.00579839c0.00194069,-0.00192484 0.00387348,-0.00385763 0.00579832,-0.00579832l4.29,-4.3l4.29,4.3l-3.12092e-08,-3.14662e-08c0.38892,0.392122 1.02208,0.394718 1.4142,0.00579839c0.00194069,-0.00192484 0.00387348,-0.00385763 0.00579832,-0.00579832l4.18882e-08,-4.15461e-08c0.392122,-0.38892 0.394718,-1.02208 0.00579824,-1.4142c-0.00192484,-0.00194069 -0.00385763,-0.00387348 -0.00579832,-0.00579832Z">
+                                  </path>
+                                </g>
+                              </svg>
+                            </i>
+                            <div class="modal__content">
+                              <h2 class="modal__cupTitle">Công suất cốc</h2>
+                              <div class="modal__cups" id="modal_cups">
+                                <div class="modal__cup" id="modal_cup" data-drink="50">50 ml</div>
+                                <div class="modal__cup" id="modal_cup" data-drink="200">200 ml</div>
+                                <div class="modal__cup" id="modal_cup" data-drink="300">300 ml</div>
+                                <div class="modal__cup" id="modal_cup" data-drink="500">500 ml</div>
+                                <div class="modal__cup"><img src="assets/icon-plus-w.svg" alt=""></div>
+                              </div>
+                              <form action="">
+                                <div class="modal__cupInput"><input type="text" placeholder="Nhập mực nước">
+                                  <div class="cupBtn">Lưu</div>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- end Modal Swap -->
+
+                        <!-- import modal End Fasting -->
+                        <%- include('component/modalEndFasting');%>
+                          <div class="modal slider2" ">
+                          <div class=" modal__container">
+                            <div class="modal__icon slider2"></div>
+                            <section class="contentMedia white about2 level">
+                              <div class="contentMedia__wrapper">
+                                <div class="contentMedia__sliderContainer">
+                                  <div class="contentMedia__slider2 swiper-container anime">
+                                    <div class="swiper-wrapper"></div>
+                                  </div>
+
+                                  <div class="swiper-button-prev two"></div>
+                                  <div class="swiper-button-next two"></div>
+                                  <div class="swiper-pagination two"></div>
+                                </div>
+                              </div>
+                            </section>
+                          </div>
+                          </div>
+                          </div>
+                          <!-- import custom plan modal -->
+                          <%- include('component/modalCustomPlan');%>
+                            <!-- import remind  modal -->
+                            <%- include('component/modalRemind');%>
+                              <!-- import edit account modal -->
+                              <%- include('component/modalEditAccount');%>
+                                <!-- // import footer For Mobile -->
+                                <%- include('component/footerMobile');%>
+                                  <script src="js/main.js"></script>
+                                  <!-- import thu vien  -->
+
+                                  <script src="component/jquery/dist/jquery.min.js"></script>
+                                  <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+                                  <script src="component/AlertifyJS/build/alertify.js"></script>
+                                  <!-- My Js -->
+                                  <script src="js//pwa/pw.js"></script>
+                                  <script src="js/logout.js"></script>
+                                  <script src="js/endFast.js"></script>
+                                  <script src="js/drinkWater.js"></script>
+                                  <script src="js/calculateTime.js"></script>
+                                  <script src="js/swiper-bundle.js"></script>
+
+                                  <script src="js/modal_count.js"></script>
+                                  <script src="js/editAccount.js"></script>
+                                  <script src="js/updateUser.js"></script>
+                                  <script src="js/choose.js"></script>
+                                  <script src="js/customPlan.js"></script>
+                                  <script src="js/remindMe.js"></script>
+</body>
+
 </html>

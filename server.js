@@ -9,6 +9,7 @@ const cookieParser = require("cookie-parser");
 const initSockets = require("./socket/index");
 const expressExtend = require("express-ejs-extend");
 const webpush = require("web-push");
+const connectFlash = require("connect-flash");
 
 const { configSocketio } = require("./config/socketio");
 const { configSession, sessionStore } = require("./config/session");
@@ -45,6 +46,9 @@ configSession(app);
 app.use(express.static("./public"));
 app.use(express.static(path.join(__dirname, "/views")));
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// enable flash message ( backend gửi message 1 lần về cho client)
+app.use(connectFlash());
 app.use(bodyParser.json());
 // app.use(morgan("tiny"));
 

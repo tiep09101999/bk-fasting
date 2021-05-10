@@ -1,183 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Đăng ký</title>
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#2196f3" />
-    <!-- ios Support -->
-    <link rel="apple-touch-icon" href="assets/images/fasting-96x96.png" />
-    <meta name="apple-mobile-web-app-statuc-bar" content="#aa7700" />
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137426789-2"></script>-->
-    <script>
-      window.dataLayer = window.dataLayer || [];
 
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đăng ký</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/main.part2.css" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#2196f3" />
+  <!-- ios Support -->
+  <link rel="apple-touch-icon" href="assets/images/fasting-96x96.png" />
+  <meta name="apple-mobile-web-app-statuc-bar" content="#aa7700" />
 
-      gtag("config", "UA-137426789-2");
-    </script>
-  </head>
-  <body>
-    <div class="wrapper">
-      <!--Navigation-->
-      <!-- <nav class="mainNav">
-        <a href="/" class="mainNav__logo"
-          ><img src="assets/logo.svg" alt=""
-        /></a>
-        <div class="mainNav__menu">
-          <div class="mainNav__links">
-            <a href="" class="mainNav__link">Giới thiệu</a>
-            <a href="" class="mainNav__link">Tìm Hiểu</a>
-            <a href="" class="mainNav__link">Kế hoạch</a>
-            <a href="" class="mainNav__link">Liên hệ</a>
-          </div>
-          <a href="" class="mainNav__button">Đăng nhập</a>
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <section class="content">
+        <div class="intro">
+          <h2 class="intro__title">Fast forward to better health.</h2>
+          <p class="intro__desc">
+            Cải thiện chế độ ăn uống của bạn, giúp sức khỏe tốt hơn và có chế
+            độ giảm cân phù hợp
+          </p>
+          <button class="cta white">Bắt đầu</button>
         </div>
-      </nav> -->
-      <!--end Navigation-->
-
-      <div class="container">
-        <section class="content">
-          <div class="intro">
-            <h2 class="intro__title">Fast forward to better health.</h2>
-            <p class="intro__desc">
-              Cải thiện chế độ ăn uống của bạn, giúp sức khỏe tốt hơn và có chế
-              độ giảm cân phù hợp
-            </p>
-            <button class="cta white">Bắt đầu</button>
-          </div>
-          <div class="form">
-            <a class="form__facebook" href=""
-              ><img src="assets/icon-facebook.svg" alt="" />Đăng ký với
-              Facebook</a
-            >
-            <span>hoặc</span>
-            <form action="">
-              <div class="form__inputWrapper">
-                <label for="email">Email</label>
-                <input type="email" placeholder="Nhập email của bạn" />
-              </div>
-              <div class="form__inputWrapper">
-                <label for="passwork">Mật khẩu</label>
-                <input type="password" placeholder="Mật khẩu" />
-              </div>
-              <div class="form__inputWrapper">
-                <label for="repasswork">Mật khẩu</label>
-                <input type="password" placeholder="Nhập lại mật khẩu" />
-              </div>
-
-              <div class="form__account">
-                <p>
-                  Đã có tài khoản?
-                  <a class="link" href="login">Đăng nhập tại đây</a>
+        <div class="form">
+          <a class="form__facebook" href=""><img src="assets/icon-facebook.svg" alt="" />Đăng ký với
+            Facebook</a>
+          <span>hoặc</span>
+          <form action="/register" method="post">
+            <div class="form__inputWrapper">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="Nhập email của bạn" name="email" required />
+            </div>
+            <div class="form__inputWrapper">
+              <label for="passwork">Mật khẩu</label>
+              <input type="password" id="password" placeholder="Mật khẩu" name="password" required />
+            </div>
+            <div class="form__inputWrapper">
+              <label for="repasswork">Nhập lại mật khẩu</label>
+              <input type="password" id="password_confirmation" placeholder="Nhập lại mật khẩu"
+                name="password_confirmation" required />
+            </div>
+            <% if(errors !="" ) { %>
+              <% errors.forEach(item=> { %>
+                <p class="form__error show">
+                  <%= item%>
                 </p>
-              </div>
+                <% })%>
+                  <% } %>
 
-              <button class="cta">Đăng ký</button>
-            </form>
-          </div>
-        </section>
-      </div>
+
+                    <div class="form__account">
+                      <p>
+                        Đã có tài khoản?
+                        <a class="link" href="login">Đăng nhập tại đây</a>
+                      </p>
+                    </div>
+                    <input class="cta" value="Đăng kí" type="submit"></input>
+          </form>
+        </div>
+      </section>
     </div>
+  </div>
+  <script src="js/pwa/pw.js"></script>
+</body>
 
-    <!--Control Menu-->
-    <div class="controlMenu">
-      <a href="" class="controlMenu__icon active"
-        ><svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="icon icon-tabler icon-tabler-bolt"
-          width="44"
-          height="44"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="#2c3e50"
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <polyline points="13 3 13 10 19 10 11 21 11 14 5 14 13 3" />
-        </svg>
-
-        <p class="controlMenu__name">Nhanh</p>
-      </a>
-
-      <a href="" class="controlMenu__icon"
-        ><svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="icon icon-tabler icon-tabler-wallet"
-          width="44"
-          height="44"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path
-            d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12"
-          />
-          <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4" />
-        </svg>
-
-        <p class="controlMenu__name">Kế hoạch</p>
-      </a>
-
-      <a href="index.html" class="controlMenu__icon"
-        ><svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="icon icon-tabler icon-tabler-book"
-          width="44"
-          height="44"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="#2c3e50"
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
-          <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
-          <line x1="3" y1="6" x2="3" y2="19" />
-          <line x1="12" y1="6" x2="12" y2="19" />
-          <line x1="21" y1="6" x2="21" y2="19" />
-        </svg>
-
-        <p class="controlMenu__name">Tìm hiểu</p>
-      </a>
-
-      <a class="controlMenu__icon"
-        ><svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="icon icon-tabler icon-tabler-user"
-          width="44"
-          height="44"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <circle cx="12" cy="7" r="4" />
-          <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-        </svg>
-
-        <p class="controlMenu__name">Hồ sơ</p>
-      </a>
-    </div>
-    <script src="js/main.js"></script>
-    <!--end Control Menu-->
-    <script src="js/pwa/pw.js"></script>
-  </body>
 </html>

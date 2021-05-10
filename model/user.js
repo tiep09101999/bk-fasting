@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 let Schema = mongoose.Schema;
+const bcrypt = require("bcrypt");
 
 let UserSchema = new Schema({
   username: String,
@@ -24,11 +25,16 @@ let UserSchema = new Schema({
     },
     // check xem đã End fasting 1 plan bất kì nào chưa
     isEndFasting: { type: Boolean, default: true },
+    planType: String,
   },
+  // khoảng thời gian nếu user chọn "nhắc tôi sau"
+  isReminder: { type: Number, default: 0 },
   // thông tin khi user đăng nhập bằng local
   local: {
     email: { type: String, trim: true },
     password: String,
+    isActive: { type: Boolean, default: false },
+    verifyToken: String,
   },
   // lưu thông tin khi login bằng fb
   facebook: {
@@ -53,11 +59,25 @@ let UserSchema = new Schema({
   createdAt: { type: Number, default: Date.now },
   // thời gian khi sửa thông tin
   updateAt: { type: Number, default: null },
+  // Lượng calo mục tiêu cần đạt được
+  caloTarget: { type: Number, default: 0 },
 });
 
 UserSchema.statics = {
   createNew(item) {
     return this.create(item);
+  },
+  verify(token) {
+    return this.findOneAndUpdate(
+      { "local.verifyToken": token },
+      {
+        "local.isActive": true,
+        "local.verifyToken": null,
+      }
+    ).exec();
+  },
+  removeById(id) {
+    return this.findOneAndRemove({ _id: id }).exec();
   },
   findByEmailLocal(email) {
     return this.findOne({ "local.email": email }).exec();
@@ -74,14 +94,16 @@ UserSchema.statics = {
   updateUser(id, item) {
     return this.findByIdAndUpdate(id, item).exec();
   },
+  updateCaloTarget(id, calo) {
+    return this.updateOne({ _id: id }, { caloTarget: calo });
+  }
 };
 
 UserSchema.methods = {
   comparePassword(password) {
     // tra ve 1 promise
-    // return bcrypt.compare(password, this.local.password);
-    if (password == this.local.password) return true;
-    return false;
+    return bcrypt.compare(password, this.local.password);
+
   },
 };
 

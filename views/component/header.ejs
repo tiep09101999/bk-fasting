@@ -1,137 +1,79 @@
 <!--Navigation-->
 <nav class="mainNav">
-  <a href="/countup" class="mainNav__logo"
-    ><img src="assets/logo.svg" alt=""
-  /></a>
+  <a href="/countup" class="mainNav__logo"><img src="assets/logo.svg" alt="" /></a>
   <div class="mainNav__menu">
     <div class="mainNav__links">
       <a href="" class="mainNav__link">Giới thiệu</a>
       <a href="learn" class="mainNav__link">Tìm Hiểu</a>
       <a href="plan" class="mainNav__link">Kế hoạch</a>
+      <a href="food-form" class="mainNav__link">Thực đơn</a>
     </div>
     <div class="mainNav__user">
       <div class="mainNav__userName" id="navbar-username">
         Xin chào!, <%= user.username%>
       </div>
       <figure class="mainNav__userImage">
-        <img
-          src="assets/images/users/<%=user.avatar%>"
-          alt="avatar"
-          id="navbar_avatar"
-        />
+        <img src="assets/images/users/<%=user.avatar%>" alt="avatar" id="navbar_avatar" />
       </figure>
       <div class="mainNav__userMenu">
         <a href="/mine" class="mainNav__userText account">
           <?xml version="1.0"?>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            version="1.1"
-            id="Capa_1"
-            x="0px"
-            y="0px"
-            viewBox="0 0 483.5 483.5"
-            style="enable-background: new 0 0 483.5 483.5"
-            xml:space="preserve"
-            width="512px"
-            height="512px"
-          >
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1"
+            x="0px" y="0px" viewBox="0 0 483.5 483.5" style="enable-background: new 0 0 483.5 483.5"
+            xml:space="preserve" width="512px" height="512px">
             <g>
               <g>
                 <g>
                   <path
                     d="M430.75,471.2v-67.8c0-83.9-55-155.2-130.7-179.8c36.4-20.5,61.1-59.5,61.1-104.2c0-65.8-53.6-119.4-119.4-119.4    s-119.4,53.6-119.4,119.4c0,44.7,24.7,83.7,61.1,104.2c-75.8,24.6-130.7,95.9-130.7,179.8v67.8c0,6.8,5.5,12.3,12.3,12.3h353.6    C425.25,483.4,430.75,478,430.75,471.2z M146.75,119.4c0-52.3,42.6-94.9,94.9-94.9s94.9,42.6,94.9,94.9s-42.6,94.9-94.9,94.9    S146.75,171.7,146.75,119.4z M406.25,458.9H77.05v-55.6c0-90.7,73.8-164.6,164.6-164.6s164.6,73.8,164.6,164.6V458.9z"
-                    data-original="#000000"
-                    class="active-path"
-                    data-old_color="#000000"
-                    fill="#2c3e50"
-                  />
+                    data-original="#000000" class="active-path" data-old_color="#000000" fill="#2c3e50" />
                 </g>
               </g>
             </g>
           </svg>
-          Hồ sơ</a
-        >
+          Hồ sơ
+        </a>
         <a href="#" class="mainNav__userText editAccount">
           <?xml version="1.0"?>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="512px"
-            viewBox="0 0 431.66 431"
-            width="512px"
-          >
+          <svg xmlns="http://www.w3.org/2000/svg" height="512px" viewBox="0 0 431.66 431" width="512px">
             <g>
               <path
                 d="m75.375 370.960938c2.796875 1.996093 6.421875 2.417968 9.601562 1.117187l110.167969-45.09375c1.625-.664063 3.046875-1.746094 4.121094-3.132813l161.113281-208.03125c10.308594-13.3125 14.863282-30.203124 12.636719-46.898437-2.222656-16.691406-11.039063-31.800781-24.480469-41.949219l-18.53125-14c-27.578125-20.683594-66.644531-15.457031-87.816406 11.75l-161.917969 209.515625c-1.230469 1.597657-1.953125 3.53125-2.070312 5.542969l-7 122.46875c-.195313 3.429688 1.382812 6.71875 4.175781 8.710938zm21.6875-110.753907 73.585938 55.1875-78.578126 32.160157zm92.070312 44.050781-87.175781-65.378906 131.488281-170.140625 86.964844 66.019531zm68.878907-267.308593c14.453125-18.566407 41.113281-22.136719 59.9375-8.019531l18.53125 14c9.175781 6.925781 15.191406 17.238281 16.710937 28.632812 1.519532 11.394531-1.589844 22.921875-8.628906 32.011719l-11.90625 15.371093-86.980469-66.03125zm0 0"
-                data-original="#000000"
-                class="active-path"
-                data-old_color="#000000"
-                fill="#666666"
-              />
+                data-original="#000000" class="active-path" data-old_color="#000000" fill="#666666" />
               <path
                 d="m421.660156 411.367188h-411.660156c-5.523438 0-10 4.476562-10 10 0 5.523437 4.476562 10 10 10h411.660156c5.523438 0 10-4.476563 10-10 0-5.523438-4.476562-10-10-10zm0 0"
-                data-original="#000000"
-                class="active-path"
-                data-old_color="#000000"
-                fill="#2c3e50"
-              />
+                data-original="#000000" class="active-path" data-old_color="#000000" fill="#2c3e50" />
             </g>
           </svg>
-          Chỉnh sửa hồ sơ</a
-        >
+          Chỉnh sửa hồ sơ
+        </a>
         <a href="#" class="mainNav__userText fixedIconSetting">
-          <svg
-            class="iconSetting"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 32 32"
-          >
+          <svg class="iconSetting" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
             <g data-name="Layer 2">
               <path
-                d="M21.87,28.82h-11a3.24,3.24,0,0,1-2.83-1.54l-5.78-10a2.6,2.6,0,0,1,0-2.63l5.78-10a3.24,3.24,0,0,1,2.83-1.54h11A3.24,3.24,0,0,1,24.7,4.72l5.78,10a2.6,2.6,0,0,1,0,2.63l-5.78,10A3.24,3.24,0,0,1,21.87,28.82Zm-11-24.14a1.77,1.77,0,0,0-1.54.79l-5.78,10a1.1,1.1,0,0,0,0,1.13l5.78,10a1.77,1.77,0,0,0,1.54.79h11a1.77,1.77,0,0,0,1.54-.79l5.78-10a1.1,1.1,0,0,0,0-1.13l-5.78-10a1.77,1.77,0,0,0-1.54-.79Z"
-              />
+                d="M21.87,28.82h-11a3.24,3.24,0,0,1-2.83-1.54l-5.78-10a2.6,2.6,0,0,1,0-2.63l5.78-10a3.24,3.24,0,0,1,2.83-1.54h11A3.24,3.24,0,0,1,24.7,4.72l5.78,10a2.6,2.6,0,0,1,0,2.63l-5.78,10A3.24,3.24,0,0,1,21.87,28.82Zm-11-24.14a1.77,1.77,0,0,0-1.54.79l-5.78,10a1.1,1.1,0,0,0,0,1.13l5.78,10a1.77,1.77,0,0,0,1.54.79h11a1.77,1.77,0,0,0,1.54-.79l5.78-10a1.1,1.1,0,0,0,0-1.13l-5.78-10a1.77,1.77,0,0,0-1.54-.79Z" />
               <path
-                d="M16.37,21.75A5.75,5.75,0,1,1,22.12,16,5.76,5.76,0,0,1,16.37,21.75Zm0-10A4.25,4.25,0,1,0,20.62,16,4.25,4.25,0,0,0,16.37,11.75Z"
-              />
+                d="M16.37,21.75A5.75,5.75,0,1,1,22.12,16,5.76,5.76,0,0,1,16.37,21.75Zm0-10A4.25,4.25,0,1,0,20.62,16,4.25,4.25,0,0,0,16.37,11.75Z" />
             </g>
           </svg>
-          Cài đặt tài khoản</a
-        >
+          Cài đặt tài khoản</a>
         <a href="#" class="mainNav__userText" id="logout_confirm">
           <?xml version="1.0"?>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            version="1.1"
-            id="Capa_1"
-            x="0px"
-            y="0px"
-            viewBox="0 0 56 56"
-            style="enable-background: new 0 0 56 56"
-            xml:space="preserve"
-            width="512px"
-            height="512px"
-          >
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1"
+            x="0px" y="0px" viewBox="0 0 56 56" style="enable-background: new 0 0 56 56" xml:space="preserve"
+            width="512px" height="512px">
             <g>
               <g>
                 <path
                   d="M35.31,5.042c-0.532-0.155-1.085,0.15-1.24,0.68s0.149,1.085,0.68,1.24C44.906,9.932,52,19.405,52,30   c0,13.233-10.767,24-24,24S4,43.233,4,30C4,19.392,11.105,9.915,21.279,6.953c0.53-0.154,0.835-0.709,0.681-1.239   c-0.153-0.53-0.708-0.839-1.239-0.681C9.698,8.241,2,18.508,2,30c0,14.337,11.663,26,26,26s26-11.663,26-26   C54,18.522,46.314,8.26,35.31,5.042z"
-                  data-original="#000000"
-                  class="active-path"
-                  data-old_color="#000000"
-                  fill="#2c3e50"
-                />
-                <path
-                  d="M28,27c0.553,0,1-0.447,1-1V1c0-0.553-0.447-1-1-1s-1,0.447-1,1v25C27,26.553,27.447,27,28,27z"
-                  data-original="#000000"
-                  class="active-path"
-                  data-old_color="#000000"
-                  fill="#2c3e50"
-                />
+                  data-original="#000000" class="active-path" data-old_color="#000000" fill="#2c3e50" />
+                <path d="M28,27c0.553,0,1-0.447,1-1V1c0-0.553-0.447-1-1-1s-1,0.447-1,1v25C27,26.553,27.447,27,28,27z"
+                  data-original="#000000" class="active-path" data-old_color="#000000" fill="#2c3e50" />
               </g>
             </g>
           </svg>
-          Đăng xuất</a
-        >
+          Đăng xuất
+        </a>
       </div>
     </div>
   </div>

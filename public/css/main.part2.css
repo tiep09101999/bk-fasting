@@ -1,0 +1,40 @@
+.form__error {
+  color: #ee5454;
+  font-size: 12px;
+  font-weight: 700;
+  pointer-events: none;
+  margin-bottom: 8px;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.form__error.show {
+  visibility: visible;
+  opacity: 1;
+  -webkit-animation: error 0.4s ease forwards;
+  animation: error 0.4s ease forwards;
+}
+
+@-webkit-keyframes error {
+  0% {
+    -webkit-transform: translateX(64px);
+    transform: translateX(64px);
+  }
+}
+
+@keyframes error {
+  0% {
+    -webkit-transform: translateX(64px);
+    transform: translateX(64px);
+  }
+}
+
+.form__error.success {
+  color: #4cb84c;
+  visibility: visible;
+  opacity: 1;
+  -webkit-animation: error 0.4s ease forwards;
+  animation: error 0.4s ease forwards;
+}

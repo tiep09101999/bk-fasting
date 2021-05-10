@@ -22,17 +22,24 @@ let initPassportLocal = () => {
           // req.flash
           if (!user) {
             console.log("cant find user");
-            return done(null, false);
+            return done(
+              null,
+              false,
+              req.flash("errors", "Email không tồn tại")
+            );
           }
-
+          if (!user.local.isActive) {
+            return done(
+              null,
+              false,
+              req.flash("errors", "Tài khoản chưa được kích hoạt")
+            );
+          }
           // let checkPassword = await user.comparePassword(password);
-          let checkPassword = user.comparePassword(password);
+          let checkPassword = await user.comparePassword(password);
           if (!checkPassword) {
-            console.log("pass wrong");
-            return done(null, false);
+            return done(null, false, req.flash("errors", "Mật khẩu sai"));
           }
-          console.log("done");
-          let content = `Xin chào ${email}`;
           return done(null, user);
         } catch (e) {
           return done(null, false);

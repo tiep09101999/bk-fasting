@@ -1,0 +1,54 @@
+[{
+  "_id": {
+    "$oid": "5fc9aff2a81f82c2485e90b5"
+  },
+  "gender": "Male",
+  "avatar": "avatar-default.jpg",
+  "username": "Tiệp Nguyễn",
+  "facebook": {
+    "uid": "2703144646591054",
+    "token": "EAAHKyDbrNKABANfPstpL2ZB9QTH6AOaSIzmhJ9XT5feoCsZCkZCpBDLFRPRcfqVCUiyODTnLs3W6pljOILU01vRfoTKIZC5vZAwBOWZAT2fx9oXtMQZCPl0yfR4wnPHOFHDKRd3ZBlGyvRopRx2yvJJLxbGpeTQxxYNQgnZAQepGVplD3w42Nk9I1",
+    "email": "tiep09101999@gmail.com"
+  },
+  "createdAt": 1607053298348,
+  "__v": 0,
+  "plan": {
+    "isChoose": true,
+    "name": "14-10",
+    "planId": "5fc9f1b1c78241116cf6eb05",
+    "chooseAt": 1620210466283,
+    "isEndFasting": false
+  },
+  "continuous": 28,
+  "cumulative": 2815,
+  "longestFast": 531,
+  "trophies": 0,
+  "totalFastingDays": 114,
+  "goalWeight": 50,
+  "currentWeight": null,
+  "updateAt": null
+},{
+  "_id": {
+    "$oid": "5fc9aff2a81f82c2485e90b6"
+  },
+  "gender": "Male",
+  "avatar": "1620201620219-IMG_20210505_145955.jpg",
+  "username": "Tiep nha",
+  "createdAt": 1607053298348,
+  "__v": 0,
+  "plan": {
+    "isChoose": true,
+    "isEndFasting": false,
+    "name": "16-8",
+    "planId": "5fc9f1b1c78241116cf6eb06",
+    "chooseAt": 1620105021986
+  },
+  "continuous": 6,
+  "cumulative": 316,
+  "longestFast": 146,
+  "trophies": 0,
+  "totalFastingDays": 11,
+  "goalWeight": 50,
+  "currentWeight": null,
+  "updateAt": 1620201620242
+}]

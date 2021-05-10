@@ -1,4 +1,4 @@
-const socket = io.connect("http://localhost:8888");
+const socket = io.connect("http://localhost:8000");
 
 function countDown(timelimit, timepassed, timeStart, notice) {
   // Credit: Mateusz Rybczonec
@@ -116,8 +116,8 @@ function countDown(timelimit, timepassed, timeStart, notice) {
           </g>
       </svg>
       <span id="base-timer-label" class="base-timer__label">${formatTime(
-        timePassed
-      )}</span>
+      timePassed
+    )}</span>
       </div>
       `;
     function formatTime(time) {
@@ -327,8 +327,8 @@ function countDown(timelimit, timepassed, timeStart, notice) {
           </g>
       </svg>
       <span id="base-timer-label" class="base-timer__label">${formatTime(
-        timePassed
-      )}</span>
+      timePassed
+    )}</span>
       </div>
       `;
     function formatTime(time) {
@@ -444,8 +444,8 @@ function countDown(timelimit, timepassed, timeStart, notice) {
           </g>
       </svg>
       <span id="base-timer-label" class="base-timer__label">${formatTime(
-        timePassed
-      )}</span>
+      timePassed
+    )}</span>
       </div>
       `;
     function formatTime(time) {

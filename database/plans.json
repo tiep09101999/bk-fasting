@@ -1,0 +1,122 @@
+[{
+  "_id": {
+    "$oid": "5fc9f1b1c78241116cf6eb05"
+  },
+  "planName": "14-10",
+  "fastHours": 14,
+  "eatHours": 10,
+  "planType": {
+    "type": "original",
+    "kindOf": ""
+  }
+},{
+  "_id": {
+    "$oid": "5fc9f1b1c78241116cf6eb06"
+  },
+  "planName": "16-8",
+  "fastHours": 16,
+  "eatHours": 8,
+  "planType": {
+    "type": "original",
+    "kindOf": ""
+  }
+},{
+  "_id": {
+    "$oid": "5fc9f1b1c78241116cf1eb06"
+  },
+  "planName": "20-4",
+  "fastHours": 20,
+  "eatHours": 4,
+  "planType": {
+    "type": "original",
+    "kindOf": ""
+  }
+},{
+  "_id": {
+    "$oid": "5fc9f1b1c78241116cf6eb07"
+  },
+  "planName": "16-8",
+  "fastHours": 16,
+  "eatHours": 8,
+  "planType": {
+    "type": "week",
+    "kindOf": "Bỏ bữa sáng"
+  }
+},{
+  "_id": {
+    "$oid": "5ff54f8a411aae400c789b59"
+  },
+  "planName": "15-9",
+  "fastHours": 15,
+  "eatHours": 9,
+  "planType": {
+    "type": "week",
+    "kindOf": "Bỏ bữa sáng"
+  }
+},{
+  "_id": {
+    "$oid": "5ff54f9b411aae400c789b5a"
+  },
+  "planName": "14-10",
+  "fastHours": 14,
+  "eatHours": 10,
+  "planType": {
+    "type": "week",
+    "kindOf": "Bỏ bữa sáng"
+  }
+},{
+  "_id": {
+    "$oid": "5ff54fa5411aae400c789b5b"
+  },
+  "planName": "12-12",
+  "fastHours": 12,
+  "eatHours": 12,
+  "planType": {
+    "type": "week",
+    "kindOf": "Bỏ bữa sáng"
+  }
+},{
+  "_id": {
+    "$oid": "5ff54fbb411aae400c789b5c"
+  },
+  "planName": "16-8",
+  "fastHours": 16,
+  "eatHours": 8,
+  "planType": {
+    "type": "week",
+    "kindOf": "Bỏ bữa tối"
+  }
+},{
+  "_id": {
+    "$oid": "5ff54fc6411aae400c789b5d"
+  },
+  "planName": "15-9",
+  "fastHours": 15,
+  "eatHours": 9,
+  "planType": {
+    "type": "week",
+    "kindOf": "Bỏ bữa tối"
+  }
+},{
+  "_id": {
+    "$oid": "5ff54fd6411aae400c789b5e"
+  },
+  "planName": "14-10",
+  "fastHours": 14,
+  "eatHours": 10,
+  "planType": {
+    "type": "week",
+    "kindOf": "Bỏ bữa tối"
+  }
+},{
+  "_id": {
+    "$oid": "5ff55003411aae400c789b5f"
+  },
+  "planName": "12-12",
+  "fastHours": 12,
+  "eatHours": 12,
+  "planType": {
+    "type": "week",
+    "kindOf": "Bỏ bữa tối"
+  }
+}]

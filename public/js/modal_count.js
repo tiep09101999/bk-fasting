@@ -222,22 +222,24 @@ window.addEventListener("load", (event) => {
     }
   }
 
+
   // open Modal Swap
 
-  const swap = document.querySelector(".modal__drinkSwap"),
-    modalSwap = document.querySelector(".modal.swap"),
-    iconCloseSwap = document.querySelector(".swap .modal__icon");
-  closeCup = document.querySelectorAll(".modal__cup");
+  const swap = document.querySelector('.modal__drinkSwap'),
+    modalSwap = document.querySelector('.modal.swap'),
+    iconCloseSwap = document.querySelector('.swap .modal__icon'),
+    closeCup = document.querySelectorAll('.modal__cup.cup');
 
   swap.addEventListener("click", openModalSwap);
 
   iconCloseSwap.addEventListener("click", closeModalSwap);
+
   closeCup.forEach(function (el) {
     el.addEventListener("click", closeCupModal);
-  });
+  })
 
   function openModalSwap() {
-    modalSwap.classList.add("open");
+    modalSwap.classList.add('open');
     modalSwap.style.overflow = "hidden";
 
     if (window.innerWidth < 799) {
@@ -246,7 +248,7 @@ window.addEventListener("load", (event) => {
   }
 
   function closeModalSwap() {
-    modalSwap.classList.remove("open");
+    modalSwap.classList.remove('open');
 
     modalSwap.style.overflow = "visible";
 
@@ -257,16 +259,18 @@ window.addEventListener("load", (event) => {
 
   function closeCupModal(e) {
     //var currentCup = e.currentTarget;
-    modalSwap.classList.remove("open");
+    modalSwap.classList.remove('open');
   }
+
 
   // open Modal End Fasting
 
-  const endFasting = document.querySelector("#btnEndFasting"),
+  const endFasting = document.querySelector(".btnEndFasting"),
     btnDeleteFasting = document.querySelector(".btnDeleteFasting"),
     btnSaveFasting = document.querySelector("#btnSaveFasting"),
     modalEndFasting = document.querySelector(".modal.endFasting"),
     iconCloseEndFasting = document.querySelector(".endFasting .modal__icon");
+  save = document.querySelector(".modal__ctaEndFasting.save");
 
   $("#btnEndFastingCustom")
     .off("click")
@@ -310,12 +314,12 @@ window.addEventListener("load", (event) => {
   endFasting.addEventListener("click", openModalEndFasting);
 
   iconCloseEndFasting.addEventListener("click", closeModalEndFasting);
+  save.addEventListener("click", saveInfo);
   // khi ấn lưu lại và xóa bỏ thì sẽ đóng modal lại
   btnDeleteFasting.addEventListener("click", closeModalEndFasting);
   btnSaveFasting.addEventListener("click", closeModalEndFasting);
-
   function openModalEndFasting() {
-    modalEndFasting.classList.add("open");
+    modalEndFasting.classList.add('open');
     modalEndFasting.style.overflow = "hidden";
 
     if (window.innerWidth < 799) {
@@ -324,7 +328,7 @@ window.addEventListener("load", (event) => {
   }
 
   function closeModalEndFasting() {
-    modalEndFasting.classList.remove("open");
+    modalEndFasting.classList.remove('open');
 
     modalEndFasting.style.overflow = "visible";
 
@@ -333,6 +337,87 @@ window.addEventListener("load", (event) => {
     }
   }
 
+  function saveInfo() {
+    modalEndFasting.classList.remove('open');
+
+    modalEndFasting.style.overflow = "visible";
+
+    if (window.innerWidth < 799) {
+      body.style.overflow = "visible";
+    }
+  }
+
+  // open endFasting Input
+  function openEndFastingInput() {
+    const iconEdit = document.querySelector(".modal__endFastingClose"),
+      endFastingInput = document.querySelector(".modal__endFastingInput"),
+      endFastingBtn = document.querySelector(".endFastingBtn");
+
+    iconEdit.addEventListener("click", openInput);
+    endFastingBtn.addEventListener("click", closeInput);
+
+    function openInput() {
+      if (endFastingInput.classList.contains("open")) {
+        endFastingInput.classList.remove("open");
+      } else {
+        endFastingInput.classList.add("open");
+      }
+    };
+
+    function closeInput() {
+      endFastingInput.classList.remove("open");
+    }
+  };
+
+  openEndFastingInput();
+
+  // open drinkInput
+  function opendrinkInput() {
+    const iconEdit = document.querySelector(".modal__drinkIconEdit"),
+      drinkInput = document.querySelector(".modal__drinkInput"),
+      drinkBtn = document.querySelector(".drinkBtn");
+
+    iconEdit.addEventListener("click", openInput);
+    drinkBtn.addEventListener("click", closeInput);
+
+    function openInput() {
+      if (drinkInput.classList.contains("open")) {
+        drinkInput.classList.remove("open");
+      } else {
+        drinkInput.classList.add("open");
+      }
+    };
+
+    function closeInput() {
+      drinkInput.classList.remove("open");
+    }
+  };
+
+  opendrinkInput();
+
+  // open cupInput
+  function opencupInput() {
+    const iconEdit = document.querySelector(".modal__cup.plus"),
+      cupInput = document.querySelector(".modal__cupInput"),
+      cupBtn = document.querySelector(".cupBtn");
+
+    iconEdit.addEventListener("click", openInput);
+    cupBtn.addEventListener("click", closeInput);
+
+    function openInput() {
+      if (cupInput.classList.contains("open")) {
+        cupInput.classList.remove("open");
+      } else {
+        cupInput.classList.add("open");
+      }
+    };
+
+    function closeInput() {
+      cupInput.classList.remove("open");
+    }
+  };
+
+  opencupInput();
   // active Card Icon End Fasting
 
   // Modal Level
@@ -404,23 +489,7 @@ window.addEventListener("load", (event) => {
 
   contentMedia2();
 
-  // open endFasting Input
-  function openEndFastingInput() {
-    const iconEdit = document.querySelector(".modal__endFastingClose"),
-      endFastingInput = document.querySelector(".modal__endFastingInput");
 
-    iconEdit.addEventListener("click", openInput);
-
-    function openInput() {
-      if (endFastingInput.classList.contains("open")) {
-        endFastingInput.classList.remove("open");
-      } else {
-        endFastingInput.classList.add("open");
-      }
-    }
-  }
-
-  openEndFastingInput();
 });
 
 socket.on("req-time-passed-level", (data) => {
